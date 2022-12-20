@@ -9,7 +9,7 @@
             img-top style="max-width:20rem" 
             class="mb-2">
         <b-card-text>
-            <p>Take a short, 20 question assessment to analyze where you're at.</p>
+            <p>Take a short, 10 question assessment to analyze where you're at.</p>
         </b-card-text>
 
         <router-link to="/pretest"><b-button class="btn-md" 
