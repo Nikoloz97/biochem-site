@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <welcome-screen msg="Welcome to LearnBiochem"/>
+
+    <pre-test></pre-test>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WelcomeScreen from './views/WelcomeScreen.vue';
+import PreTest from './views/Pre-Test.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    WelcomeScreen,
+    PreTest
+  },
+
 }
 </script>
 
