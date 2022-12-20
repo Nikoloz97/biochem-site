@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <welcome-screen msg="Welcome to LearnBiochem"/>
 
-    <pre-test></pre-test>
+    <router-link to="/">Home | </router-link>
+    <router-link to="/pretest">Pre-test</router-link>
+    
+    <!-- Router-view = displays all router-links. 
+         **How does it default to welcome screen?  -->
     <router-view></router-view>
+    
   </div>
 </template>
 
 <script>
-import WelcomeScreen from './views/WelcomeScreen.vue';
-import PreTest from './views/Pre-Test.vue'
+
 
 export default {
   name: 'App',
   components: {
-    WelcomeScreen,
-    PreTest
+   
   },
 
 }
@@ -30,4 +32,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
