@@ -1,33 +1,30 @@
 <template>
 <div>
     <!-- TODO: Create an object list of content for each card in the store, and create a v-for + v-bind for each card -->
-<b-container class="d-flex justify-content-around flex-wrap">
-        <b-card title="Question 1"
-                img-src="https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg"
-                img-alt="Amino acid"
+<b-container class="d-flex justify-content-around flex-wrap" v-for="pre_question in $store.state.pretest" :key="pre_question">
+        <b-card :title= "pre_question.title"
+                :img-src="pre_question.imgsrc"
+                :img-alt="pre_question.imgalt"
                 img-top 
                 style="width: 40%; height: 45rem"
                 class="mb-5 shadow">
             <b-card-text>
-                <p>What is this amino acid?</p>
+                <p>{{ pre_question.question }}</p>
             </b-card-text>
                 <b-container class="border d-flex justify-content-around flex-wrap" style=" height: 60%;">
-                        <b-col>
-                            <b-button class="mt-3"
+                        <b-col v-for="choice in pre_question.choices" :key="choice">
+                            <b-button v-if="choice.column == 1"
+                                        class="mt-3"
                                         style="height: 30%; width: 80%;"
-                                        variant="primary">Cysteine</b-button>
-                            <b-button class="mt-3"
-                                        style="height: 30%; width: 80%;"
-                                        variant="primary">Alanine</b-button>
+                                        variant="primary">{{ choice.name }}</b-button>
+                           
                         </b-col>
                 
-                        <b-col>
-                            <b-button class="mt-3"
+                        <b-col v-for="choice in pre_question.choices" :key="choice">
+                            <b-button v-if="choice.column == 2"
+                                        class="mt-3"
                                         style="height: 30%; width: 80%;"
-                                        variant="primary">Arginine</b-button>
-                            <b-button class="mt-3"
-                                       style="height: 30%; width: 80%;"
-                                      variant="primary">Histidine</b-button>
+                                        variant="primary">{{ choice.name }}</b-button>
                         </b-col>
 
                 </b-container>
