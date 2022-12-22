@@ -21,24 +21,19 @@ export default new Vuex.Store({
             choices: [
                 {
                 name: "Cysteine",
-                correct: false,
-                column: 1
+                correct: false
                 }, 
                 {
                     name: "Arginine",
-                    correct: false,
-                    column: 1,
+                    correct: false
                 }, 
                 {
                     name: "Lysine",
-                    correct: true,
-                    column: 2
-
+                    correct: true
                 },
                 {
                     name: "Histidine",
-                    correct: false,
-                    column: 2
+                    correct: false
                 }]
 
         }
