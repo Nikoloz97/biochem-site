@@ -7,13 +7,17 @@ export default new Vuex.Store({
   state: {
     correctMsg: "Nice Work!",
     incorrectMsg: "Better luck next time",
+    pretest_completed: false,
     pretest: [
         {
+            id: 0,
             title: "Question 1",
             statement: "What is this amino acid?",
             imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
             imgalt: "An amino acid with following R-group: 4-carbons + amine group",
             displayAnswers: false,
+            selected: null,
+            answer: 3,
             choices: [
                 {
                 name: "Cysteine",
