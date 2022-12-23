@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     correctMsg: "Nice Work!",
-    incorrectMsg: "Better luck next time",
+    incorrectMsg: "Better luck next time...",
     pretest_completed: false,
     pretest: [
         {
@@ -17,7 +17,7 @@ export default new Vuex.Store({
             imgalt: "An amino acid with following R-group: 4-carbons + amine group",
             displayAnswers: false,
             selected: null,
-            answer: 3,
+            answer: "Lysine",
             choices: [
                 {
                 name: "Cysteine",
