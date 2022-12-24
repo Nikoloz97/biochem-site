@@ -19,6 +19,9 @@ export default new Vuex.Store({
             imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
             imgalt: "An amino acid with following R-group: 4-carbons + amine group",
             displayAnswers: false,
+            isBackContHidden: true,
+            isBackDisabled: false,
+            isForwardDisabled: false,
             selected: null,
             answer: "Lysine",
             choices: [
@@ -47,6 +50,9 @@ export default new Vuex.Store({
           imgsrc: "http://clearlyexplained.com/_Media/754px-citric_acid_cycle_wit_med_hr.png",
           imgalt: "An amino acid with following R-group: 4-carbons + amine group",
           displayAnswers: false,
+          isBackContHidden: true,
+          isBackDisabled: false,
+          isForwardDisabled: false,
           selected: null,
           answer: "Lysine",
           choices: [
@@ -76,6 +82,9 @@ export default new Vuex.Store({
         imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
         imgalt: "An amino acid with following R-group: 4-carbons + amine group",
         displayAnswers: false,
+        isBackContHidden: true,
+        isBackDisabled: false,
+        isForwardDisabled: false,
         selected: null,
         answer: "Lysine",
         choices: [
@@ -124,6 +133,16 @@ export default new Vuex.Store({
       if (state.currentQuestion > 0)
       state.currentQuestion --
   },
+  DISPLAY_BACK_CONTINUE (state, question) {
+    question.isBackContHidden = !question.isBackContHidden
+  },
+  DISABLE_BACK (state, question) {
+    question.isBackDisabled = true
+  },
+  DISABLE_CONT (state, question) {
+    question.isForwardDisabled = true
+  }
+
 },
   actions: {
   },

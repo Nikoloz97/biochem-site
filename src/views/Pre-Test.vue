@@ -2,7 +2,7 @@
 <div>
 
 
-<!-- TODO: fix the inability to display back and continue buttons after going back. Probably need to add to decCurrentQuestion function...-->
+<!-- TODO: fix the inability to display back and continue buttons after going back. Hint: add stuff to decCurrentQuestion function...-->
 <b-container class="d-flex justify-content-center" v-for="question, index in $store.state.pretest" :key="question.title">
         <b-card 
                 v-if="index == $store.state.currentQuestion"
@@ -18,9 +18,11 @@
                 <p class="d-none correct">{{ $store.state.correctMsg }}</p>
                 <p class="d-none incorrect">{{ $store.state.incorrectMsg }}</p>
                 <b-container class="d-flex justify-content-between">
-                    <b-button class="d-none"
+                    <b-button :class= "{'d-none' : question.isBackContHidden}"
+                              :disabled="question.isBackDisabled"
                                @click="decCurrentQuestion()">Back</b-button>
-                    <b-button class="d-none"
+                    <b-button :class= "{'d-none' : question.isBackContHidden}"
+                              :disabled="question.isForwardDisabled"
                               @click="incCurrentQuestion()">Continue</b-button>
                 </b-container>
             </b-card-text>
@@ -29,7 +31,7 @@
                             <!-- Vue = implicitly knows that index = index of item in array -->
                             <div v-for="(choice, index) in question.choices" :key="choice.name">
                                 <b-button  v-if="index >= 2"
-                                            @click="displayAnswer(question, $event), displayMessage(question, $event)"
+                                            @click="displayAnswer(question), disableBack(question), disableCont(question), displayMessage(question, $event)"
                                             :disabled = "question.displayAnswers"
                                             :class="{'bg-success' : choice.correct && question.displayAnswers, 'font-weight-bolder' : choice.correct && question.displayAnswers}"
                                             class="mt-3"
@@ -41,7 +43,7 @@
                         <b-col>
                             <div v-for="(choice, index) in question.choices" :key="choice.name">
                                 <b-button v-if="index < 2"
-                                            @click="displayAnswer(question), displayMessage(question, $event)"
+                                            @click="displayAnswer(question), disableBack(question), disableCont(question), displayMessage(question, $event)"
                                             :disabled = "question.displayAnswers"
                                             :class="{'bg-success': choice.correct && question.displayAnswers}"
                                             class="mt-3"
@@ -73,11 +75,28 @@ export default {
             // Set displayAnswer property for question to true... 
             this.$store.commit("DISPLAY_ANSWERS", question)
         },
+        displayBackCont(question) {
+            this.$store.commit("DISPLAY_BACK_CONTINUE", question)
+        },
+        disableBack(question) {
+            if (this.$store.state.pretest.indexOf(question) == 0)  {
+                this.$store.commit("DISABLE_BACK", question)
+            }
+        },
+        disableCont(question) {
+            if (this.$store.state.pretest.indexOf(question) == (this.$store.state.pretest.length - 1) ) {
+                this.$store.commit("DISABLE_CONT", question)
+            }
+        },
         displayMessage(question, event) {
 
             // First, update total score...
 
             this.updateAttemptsScore()
+
+            // Then, display back-continue buttons...
+
+            this.displayBackCont(question)
 
             // Get button element that was clicked on
             const answerChoice = event.target;
@@ -88,7 +107,6 @@ export default {
             
             // If correct answer was picked, display correctMessage, display back and continue buttons, increase correct score...
             if (answerChoice.textContent == question.answer) {
-
                 for (const child of cardTextElement.children) {
                     if (child.classList.contains("statement")) {
                         child.classList.add("d-none")
@@ -102,7 +120,7 @@ export default {
             }
         
 
-            // If incorrect asnwer was picked, display incorrectMessage...
+            // If incorrect answer was picked, display incorrectMessage...
             else {
                 for (const child of cardTextElement.children) {
                     if (child.classList.contains("statement")) {
@@ -114,31 +132,28 @@ export default {
                 }
             }
 
-             // Back and continue buttons -- 
-             const backContinueButtons = cardTextElement.getElementsByTagName("button")
-             for (const button of backContinueButtons) {
+            //  // Back and continue buttons -- 
+            //  const backContinueButtons = cardTextElement.getElementsByTagName("button")
+            //  for (const button of backContinueButtons) {
 
-                // Display both buttons
-                button.classList.remove("d-none")
-
-                // if were at the last question...
-                if (this.$store.state.currentQuestion == (this.$store.state.pretest.length - 1)) {
-                    // Disable the continue button
-                    if (button.textContent == "Next") {
-                        button.setAttribute("disabled", "")
-                    }
-                }
+            //     // if were at the last question...
+            //     if (this.$store.state.currentQuestion == (this.$store.state.pretest.length - 1)) {
+            //         // Disable the continue button
+            //         if (button.textContent == "Continue") {
+            //             button.setAttribute("disabled", "")
+            //         }
+            //     }
                 
-                // if were at the first question...
-                if (this.$store.state.currentQuestion == 0) {
-                    // Disable the back button
-                    if (button.textContent == "Previous") {
-                        button.setAttribute("disabled", "")
-                    }
-                } 
+            //     // if were at the first question...
+            //     if (this.$store.state.currentQuestion == 0) {
+            //         // Disable the back button
+            //         if (button.textContent == "Back") {
+            //             button.setAttribute("disabled", "")
+            //         }
+            //     } 
                 
                 
-             }
+            //  }
 
         },
         updateCorrectScore() {
