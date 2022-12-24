@@ -13,7 +13,8 @@ export default new Vuex.Store({
     currentQuestion: 0,
     pretest: [
         {
-            questionNumber: 1,
+            topic: 'Amino Acids',
+            explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
             title: "Question 1",
             statement: "What is this amino acid?",
             imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
@@ -44,8 +45,8 @@ export default new Vuex.Store({
 
         },
         {
-          questionNumber: 2,
-          title: "Question 2",
+          topic: 'Amino Acids',
+          explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',        
           statement: "What is this amino acid?",
           imgsrc: "http://clearlyexplained.com/_Media/754px-citric_acid_cycle_wit_med_hr.png",
           imgalt: "An amino acid with following R-group: 4-carbons + amine group",
@@ -76,7 +77,8 @@ export default new Vuex.Store({
       },
       
       {
-        questionNumber: 3,
+        topic: 'Amino Acids',
+        explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
         title: "Question 3",
         statement: "What is this amino acid?",
         imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",

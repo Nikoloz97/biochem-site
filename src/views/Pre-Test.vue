@@ -1,8 +1,7 @@
 <template>
 <div>
 
-
-<!-- TODO: fix the inability to display back and continue buttons after going back. Hint: add stuff to decCurrentQuestion function...-->
+<!-- TODO: create a explanation badge, once hovered over, creates a popper -->
 <b-container class="d-flex justify-content-center" v-for="question, index in $store.state.pretest" :key="question.title">
         <b-card 
                 v-if="index == $store.state.currentQuestion"
@@ -21,6 +20,16 @@
                     <b-button :class= "{'d-none' : question.isBackContHidden}"
                               :disabled="question.isBackDisabled"
                                @click="decCurrentQuestion()">Back</b-button>
+
+                               <!-- v-b-popover = special v-bind mechanism -->
+                    <b-badge :class= "{'d-none' : question.isBackContHidden}"
+                              v-b-popover.hover.top="question.explanation" 
+                              :title="question.topic"
+                              class="p-3"
+                              pill
+                              variant = "info"
+                              >Explanation</b-badge>
+
                     <b-button :class= "{'d-none' : question.isBackContHidden}"
                               :disabled="question.isForwardDisabled"
                               @click="incCurrentQuestion()">Continue</b-button>
