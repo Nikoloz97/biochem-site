@@ -1,7 +1,6 @@
 <template>
 <div>
 
-    <!-- TODO: create a "continue button that renders the next card (updates Current Question)"-->
 <b-container class="d-flex justify-content-center" v-for="question, index in $store.state.pretest" :key="question.title">
         <b-card 
                 v-if="index == $store.state.currentQuestion"
@@ -16,13 +15,19 @@
                 <p class="statement">{{ question.statement }}</p>
                 <p class="d-none correct">{{ $store.state.correctMsg }}</p>
                 <p class="d-none incorrect">{{ $store.state.incorrectMsg }}</p>
+                <b-container class="d-flex justify-content-between">
+                    <b-button class="d-none"
+                               @click="decCurrentQuestion()">Previous</b-button>
+                    <b-button class="d-none"
+                              @click="incCurrentQuestion()">Next</b-button>
+                </b-container>
             </b-card-text>
             <b-container class="border d-flex justify-content-around flex-wrap" style=" height: 60%;">
                         <b-col>
                             <!-- Vue = implicitly knows that index = index of item in array -->
                             <div v-for="(choice, index) in question.choices" :key="choice.name">
                                 <b-button  v-if="index >= 2"
-                                            @click="displayAnswers(question), displayMessage(question, $event), updateCurrentQuestion()"
+                                            @click="displayAnswers(question), displayMessage(question, $event)"
                                             :class="{'bg-success' : choice.correct && question.displayAnswers, 'font-weight-bolder' : choice.correct && question.displayAnswers,'disabled': !choice.correct && question.displayAnswers}"
                                             class="mt-3"
                                             style="height: 30%; width: 80%;"
@@ -76,7 +81,7 @@ export default {
             const cardTextElement = answerChoice.parentElement.parentElement.parentElement.previousSibling;
 
             
-            // If correct answer was picked, display correctMessage, increase correct score...
+            // If correct answer was picked, display correctMessage, display back and continue buttons, increase correct score...
             if (answerChoice.textContent == question.answer) {
 
                 for (const child of cardTextElement.children) {
@@ -86,9 +91,11 @@ export default {
                     if (child.classList.contains("correct")) {
                         child.classList.remove("d-none")
                     }
+                    
                 }
                 this.updateCorrectScore()
             }
+        
 
             // If incorrect asnwer was picked, display incorrectMessage...
             else {
@@ -101,6 +108,33 @@ export default {
                     }
                 }
             }
+
+             // Back and continue buttons -- 
+             const backContinueButtons = cardTextElement.getElementsByTagName("button")
+             for (const button of backContinueButtons) {
+
+                // Display both buttons
+                button.classList.remove("d-none")
+
+                // if were at the last question...
+                if (this.$store.state.currentQuestion == (this.$store.state.pretest.length - 1)) {
+                    // Disable the continue button
+                    if (button.textContent == "Next") {
+                        button.setAttribute("disabled", "")
+                    }
+                }
+                
+                // if were at the first question...
+                if (this.$store.state.currentQuestion == 0) {
+                    // Disable the back button
+                    if (button.textContent == "Previous") {
+                        button.setAttribute("disabled", "")
+                    }
+                } 
+                
+                
+             }
+
         },
         updateCorrectScore() {
             this.$store.commit("UPDATE_CORRECT_SCORE")
@@ -108,9 +142,12 @@ export default {
         updateAttemptsScore() {
             this.$store.commit("UPDATE_ATTEMPTS_SCORE")
         },
-        updateCurrentQuestion() {
-            this.$store.commit("UPDATE_CURRENT_QUESTION")
-        }
+        incCurrentQuestion() {
+            this.$store.commit("INCREASE_CURRENT_QUESTION")
+        },
+        decCurrentQuestion() {
+            this.$store.commit("DECREASE_CURRENT_QUESTION")
+        } 
     }
 }
 
