@@ -1,6 +1,8 @@
 <template>
 <div>
 
+
+<!-- TODO: fix the inability to display back and continue buttons after going back. Probably need to add to decCurrentQuestion function...-->
 <b-container class="d-flex justify-content-center" v-for="question, index in $store.state.pretest" :key="question.title">
         <b-card 
                 v-if="index == $store.state.currentQuestion"
@@ -17,9 +19,9 @@
                 <p class="d-none incorrect">{{ $store.state.incorrectMsg }}</p>
                 <b-container class="d-flex justify-content-between">
                     <b-button class="d-none"
-                               @click="decCurrentQuestion()">Previous</b-button>
+                               @click="decCurrentQuestion()">Back</b-button>
                     <b-button class="d-none"
-                              @click="incCurrentQuestion()">Next</b-button>
+                              @click="incCurrentQuestion()">Continue</b-button>
                 </b-container>
             </b-card-text>
             <b-container class="border d-flex justify-content-around flex-wrap" style=" height: 60%;">
@@ -27,8 +29,9 @@
                             <!-- Vue = implicitly knows that index = index of item in array -->
                             <div v-for="(choice, index) in question.choices" :key="choice.name">
                                 <b-button  v-if="index >= 2"
-                                            @click="displayAnswers(question), displayMessage(question, $event)"
-                                            :class="{'bg-success' : choice.correct && question.displayAnswers, 'font-weight-bolder' : choice.correct && question.displayAnswers,'disabled': !choice.correct && question.displayAnswers}"
+                                            @click="displayAnswer(question, $event), displayMessage(question, $event)"
+                                            :disabled = "question.displayAnswers"
+                                            :class="{'bg-success' : choice.correct && question.displayAnswers, 'font-weight-bolder' : choice.correct && question.displayAnswers}"
                                             class="mt-3"
                                             style="height: 30%; width: 80%;"
                                             variant="primary">{{ choice.name }}</b-button>
@@ -38,8 +41,9 @@
                         <b-col>
                             <div v-for="(choice, index) in question.choices" :key="choice.name">
                                 <b-button v-if="index < 2"
-                                            @click="displayAnswers(question), displayMessage(question, $event), updateCurrentQuestion()"
-                                            :class="{'bg-success': choice.correct && question.displayAnswers, 'disabled': !choice.correct && question.displayAnswers}"
+                                            @click="displayAnswer(question), displayMessage(question, $event)"
+                                            :disabled = "question.displayAnswers"
+                                            :class="{'bg-success': choice.correct && question.displayAnswers}"
                                             class="mt-3"
                                             style="height: 30%; width: 80%;"
                                             variant="primary">{{ choice.name }}</b-button>
@@ -65,7 +69,8 @@ export default {
         
 },
     methods: {
-        displayAnswers(question) {
+        displayAnswer(question) {
+            // Set displayAnswer property for question to true... 
             this.$store.commit("DISPLAY_ANSWERS", question)
         },
         displayMessage(question, event) {
