@@ -1,10 +1,9 @@
 <template>
 <div>
-
-<!-- TODO: create a explanation badge, once hovered over, creates a popper -->
-<b-container class="d-flex justify-content-center" v-for="question, index in $store.state.pretest" :key="question.title">
+    
+<b-container class="d-flex justify-content-center" v-for="question, index in $store.state.pretest" :key="index">
         <b-card 
-                v-if="index == $store.state.currentQuestion"
+                v-if="(index == $store.state.currentQuestion) && (!$store.state.isResultsDisplayed)"
                 :img-src="question.imgsrc"
                 :img-alt="question.imgalt"
                 img-top 
@@ -30,9 +29,14 @@
                               variant = "info"
                               >Explanation</b-badge>
 
-                    <b-button :class= "{'d-none' : question.isBackContHidden}"
+                    <b-button v-if="index != ($store.state.pretest.length - 1)"
+                              :class= "{'d-none' : question.isBackContHidden}"
                               :disabled="question.isForwardDisabled"
                               @click="incCurrentQuestion()">Continue</b-button>
+
+                    <b-button v-if="index == ($store.state.pretest.length - 1)"
+                               :class= "{'d-none' : question.isBackContHidden}"
+                               @click="displayResults()">Results</b-button>
                 </b-container>
             </b-card-text>
             <b-container class="border d-flex justify-content-around flex-wrap" style=" height: 60%;">
@@ -60,9 +64,37 @@
                                             variant="primary">{{ choice.name }}</b-button>
                             </div>
                         </b-col>
-
             </b-container>
         </b-card>
+</b-container>
+
+<b-container class="d-flex justify-content-center" v-if="$store.state.isResultsDisplayed">
+    <b-card 
+            body-class="text-center"
+            header-tag="nav">
+        <template #header>
+            <b-nav card-header tabs>
+                <b-nav-item :active="$store.state.currentResultsTab == 0"
+                            @click="goToResultTab($event)">Score</b-nav-item>
+                <b-nav-item :active="$store.state.currentResultsTab == 1"
+                            @click="goToResultTab($event)">Stats</b-nav-item>
+                <b-nav-item :active="$store.state.currentResultsTab == 2"
+                            @click="goToResultTab($event)">Resources</b-nav-item>
+            </b-nav>
+        </template>
+
+        <b-container v-for="result, index in $store.state.results" :key="index">
+            
+                <b-card-body v-if="index == $store.state.currentResultsTab">
+                    <b-card-title> {{ result.name }} </b-card-title>
+                    <b-card-text>
+                        {{ result.description }}
+                    </b-card-text>
+                </b-card-body>
+
+
+        </b-container>
+    </b-card>
 </b-container>
 
 </div>
@@ -74,14 +106,13 @@
 
 export default {
     computed: {
-        // This is where you can create functions that grabs specific pieces of the state data
+        // This is where you can create functions that grabs specific pieces of the state/store data
         // Downside = function cannot contain a parameter
 
         
 },
     methods: {
         displayAnswer(question) {
-            // Set displayAnswer property for question to true... 
             this.$store.commit("DISPLAY_ANSWERS", question)
         },
         displayBackCont(question) {
@@ -93,7 +124,7 @@ export default {
             }
         },
         disableCont(question) {
-            if (this.$store.state.pretest.indexOf(question) == (this.$store.state.pretest.length - 1) ) {
+            if (this.$store.state.pretest.indexOf(question) == (this.$store.state.pretest.length - 1)) {
                 this.$store.commit("DISABLE_CONT", question)
             }
         },
@@ -128,7 +159,6 @@ export default {
                 this.updateCorrectScore()
             }
         
-
             // If incorrect answer was picked, display incorrectMessage...
             else {
                 for (const child of cardTextElement.children) {
@@ -141,28 +171,6 @@ export default {
                 }
             }
 
-            //  // Back and continue buttons -- 
-            //  const backContinueButtons = cardTextElement.getElementsByTagName("button")
-            //  for (const button of backContinueButtons) {
-
-            //     // if were at the last question...
-            //     if (this.$store.state.currentQuestion == (this.$store.state.pretest.length - 1)) {
-            //         // Disable the continue button
-            //         if (button.textContent == "Continue") {
-            //             button.setAttribute("disabled", "")
-            //         }
-            //     }
-                
-            //     // if were at the first question...
-            //     if (this.$store.state.currentQuestion == 0) {
-            //         // Disable the back button
-            //         if (button.textContent == "Back") {
-            //             button.setAttribute("disabled", "")
-            //         }
-            //     } 
-                
-                
-            //  }
 
         },
         updateCorrectScore() {
@@ -176,7 +184,16 @@ export default {
         },
         decCurrentQuestion() {
             this.$store.commit("DECREASE_CURRENT_QUESTION")
-        } 
+        },
+
+        displayResults() {
+            this.$store.commit("DISPLAY_RESULTS")
+        },
+
+        goToResultTab(event) {
+            this.$store.commit("GO_TO_RESULT_TAB", event)
+        },
+        
     }
 }
 
@@ -184,10 +201,6 @@ export default {
 </script>
 
 <style>
-
-.delete {
-    display: none !important;
-}
 
 
 
