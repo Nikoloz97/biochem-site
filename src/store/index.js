@@ -11,6 +11,8 @@ export default new Vuex.Store({
     correctAttempts: 0,
     totalAttempts: 0,
     currentQuestion: 0,
+    currentResultsTab: 0,
+    isResultsDisplayed: false,
     pretest: [
         {
             topic: 'Amino Acids',
@@ -108,6 +110,21 @@ export default new Vuex.Store({
             }]
 
     }
+    ],
+    results: [
+      {
+        name: "Score",
+        description: "This is your score"
+
+
+      },
+      {
+        name: "Stats",
+        description:  "This is your stats"
+
+      },
+      
+
     ]
   },
   getters: {
@@ -143,8 +160,18 @@ export default new Vuex.Store({
   },
   DISABLE_CONT (state, question) {
     question.isForwardDisabled = true
+  },
+  DISPLAY_RESULTS (state) {
+    state.isResultsDisplayed = true;
+  },
+  GO_TO_RESULT_TAB (state, event) {
+    if (event.target.textContent == "Score") {
+      state.currentResultsTab = 0;
+    }
+    if (event.target.textContent == "Stats") {
+      state.currentResultsTab = 1;
+    }
   }
-
 },
   actions: {
   },

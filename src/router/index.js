@@ -20,6 +20,7 @@ const router = new VueRouter({
         name: 'Pretest',
         component: PreTest
       },
+     
   ]
 
 })

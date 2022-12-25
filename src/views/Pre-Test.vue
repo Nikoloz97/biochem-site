@@ -1,6 +1,11 @@
 <template>
 <div>
-    
+
+
+<!-- TODO: Score tab - Create a pie chart that displays user's percentage-->
+<!-- TODO: Stats tab - Create a horizontal bar graph that subdivides user's score for each topic (2 questions per topic) + resources dropdown (contains links for topics user got 50% or lower)-->
+
+<!-- Pre-test display -->
 <b-container class="d-flex justify-content-center" v-for="question, index in $store.state.pretest" :key="index">
         <b-card 
                 v-if="(index == $store.state.currentQuestion) && (!$store.state.isResultsDisplayed)"
@@ -78,21 +83,19 @@
                             @click="goToResultTab($event)">Score</b-nav-item>
                 <b-nav-item :active="$store.state.currentResultsTab == 1"
                             @click="goToResultTab($event)">Stats</b-nav-item>
-                <b-nav-item :active="$store.state.currentResultsTab == 2"
-                            @click="goToResultTab($event)">Resources</b-nav-item>
+                
             </b-nav>
         </template>
 
+
+<!-- Results display -->
         <b-container v-for="result, index in $store.state.results" :key="index">
-            
                 <b-card-body v-if="index == $store.state.currentResultsTab">
                     <b-card-title> {{ result.name }} </b-card-title>
                     <b-card-text>
-                        {{ result.description }}
+                        <bar-chart/>
                     </b-card-text>
                 </b-card-body>
-
-
         </b-container>
     </b-card>
 </b-container>
@@ -103,13 +106,15 @@
 
 
 <script>
+import BarChart from '@/components/BarChart.vue'
 
 export default {
+    // For some reason, name should be "multiword" (i.e. multiple caps)
+    name: 'PreTest',
+    components: {BarChart},
     computed: {
         // This is where you can create functions that grabs specific pieces of the state/store data
-        // Downside = function cannot contain a parameter
-
-        
+        // Downside = function cannot contain a parameter 
 },
     methods: {
         displayAnswer(question) {

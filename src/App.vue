@@ -7,6 +7,7 @@
     <!-- Router-view = displays all router-links. 
          **How does it default to welcome screen?  -->
     <router-view></router-view>
+
     
   </div>
 </template>
@@ -16,10 +17,7 @@
 
 export default {
   name: 'App',
-  components: {
-   
-  },
-
+  components: {},
 }
 </script>
 
