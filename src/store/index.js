@@ -27,7 +27,7 @@ export default new Vuex.Store({
             displayAnswers: false,
             isBackContHidden: true,
             isBackDisabled: false,
-            isForwardDisabled: false,
+    
             isAnsweredCorrect: null,
             answer: "Lysine",
             choices: [
@@ -59,7 +59,7 @@ export default new Vuex.Store({
           displayAnswers: false,
           isBackContHidden: true,
           isBackDisabled: false,
-          isForwardDisabled: false,
+  
           isAnsweredCorrect: null,
           answer: "Lysine",
           choices: [
@@ -92,7 +92,7 @@ export default new Vuex.Store({
         displayAnswers: false,
         isBackContHidden: true,
         isBackDisabled: false,
-        isForwardDisabled: false,
+
         isAnsweredCorrect: null,
         answer: "Lysine",
         choices: [
@@ -124,7 +124,6 @@ export default new Vuex.Store({
       displayAnswers: false,
       isBackContHidden: true,
       isBackDisabled: false,
-      isForwardDisabled: false,
       isAnsweredCorrect: null,
       answer: "Lysine",
       choices: [
@@ -156,7 +155,6 @@ export default new Vuex.Store({
       displayAnswers: false,
       isBackContHidden: true,
       isBackDisabled: false,
-      isForwardDisabled: false,
       isAnsweredCorrect: null,
       answer: "Lysine",
       choices: [
@@ -189,7 +187,6 @@ export default new Vuex.Store({
     displayAnswers: false,
     isBackContHidden: true,
     isBackDisabled: false,
-    isForwardDisabled: false,
     isAnsweredCorrect: null,
     answer: "Lysine",
     choices: [
@@ -222,7 +219,6 @@ export default new Vuex.Store({
   displayAnswers: false,
   isBackContHidden: true,
   isBackDisabled: false,
-  isForwardDisabled: false,
   isAnsweredCorrect: null,
   answer: "Lysine",
   choices: [
@@ -255,7 +251,6 @@ export default new Vuex.Store({
   displayAnswers: false,
   isBackContHidden: true,
   isBackDisabled: false,
-  isForwardDisabled: false,
   isAnsweredCorrect: null,
   answer: "Lysine",
   choices: [
@@ -288,7 +283,6 @@ export default new Vuex.Store({
   displayAnswers: false,
   isBackContHidden: true,
   isBackDisabled: false,
-  isForwardDisabled: false,
   isAnsweredCorrect: null,
   answer: "Lysine",
   choices: [
@@ -321,7 +315,6 @@ export default new Vuex.Store({
   displayAnswers: false,
   isBackContHidden: true,
   isBackDisabled: false,
-  isForwardDisabled: false,
   isAnsweredCorrect: null,
   answer: "Lysine",
   choices: [
@@ -445,9 +438,6 @@ export default new Vuex.Store({
   },
   DISABLE_BACK (state, question) {
     question.isBackDisabled = true
-  },
-  DISABLE_CONT (state, question) {
-    question.isForwardDisabled = true
   },
   DISPLAY_RESULTS (state) {
     state.isResultsDisplayed = true;

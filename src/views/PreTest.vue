@@ -79,7 +79,6 @@
                 @click="
                   displayAnswer(question),
                     disableBack(question),
-                    disableCont(question),
                     displayMessage(question, $event)
                 "
                 :disabled="question.displayAnswers"
@@ -106,7 +105,6 @@
                 @click="
                   displayAnswer(question),
                     disableBack(question),
-                    disableCont(question),
                     displayMessage(question, $event)
                 "
                 :disabled="question.displayAnswers"
@@ -187,19 +185,13 @@ export default {
     displayBackCont(question) {
       this.$store.commit("DISPLAY_BACK_CONTINUE", question);
     },
+    //indexOf = returns the index of an object in obj array
     disableBack(question) {
       if (this.$store.state.pretest.indexOf(question) == 0) {
         this.$store.commit("DISABLE_BACK", question);
       }
     },
-    disableCont(question) {
-      if (
-        this.$store.state.pretest.indexOf(question) ==
-        this.$store.state.pretest.length - 1
-      ) {
-        this.$store.commit("DISABLE_CONT", question);
-      }
-    },
+
     displayMessage(question, event) {
       // First, update total score...
 
