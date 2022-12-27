@@ -169,6 +169,8 @@
 <script>
 import PieScore from "@/components/PreTestScore.vue";
 import BarStats from "@/components/PreTestStats.vue";
+// imported lodash
+import { random } from "lodash";
 
 export default {
   // For some reason, name should be "multiword" (i.e. multiple caps)
