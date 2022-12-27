@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import WelcomeScreen from '@/views/WelcomeScreen'
-import PreTest from '@/views/Pre-Test'
+import HomeView from '@/views/HomeView'
+import PreTest from '@/views/PreTest'
 
 Vue.use(VueRouter)
 
@@ -13,7 +13,7 @@ const router = new VueRouter({
     {
         path: '/',
         name: 'Welcome', 
-        component: WelcomeScreen
+        component: HomeView
       },
       {
         path: '/pretest',

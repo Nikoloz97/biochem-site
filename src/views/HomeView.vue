@@ -1,6 +1,5 @@
 <template>
 <div> 
-
 <b-container>
   <b-col align-h="center">
     <b-card title="Biochemistry Pre-Test" 
@@ -17,11 +16,7 @@
 
     </b-card>
   </b-col>
-
-  
-
 </b-container>
-
     </div>
 </template>
 

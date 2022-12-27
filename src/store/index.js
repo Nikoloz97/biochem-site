@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// TODO: Get rid of a lot of this stuff? Store material = should be stuff that is reusable by a lot of components 
+// Its going to be a lot of work. If you're not up for it, rename stuff so its more specific to pretest stuff (e.g. totalAttempts -> pretest_totalAttempts)
+
 export default new Vuex.Store({
   state: {
     correctMsg: "Nice Work!",
@@ -15,9 +18,9 @@ export default new Vuex.Store({
     isResultsDisplayed: false,
     pretest: [
         {
+            title: "Question 1",
             topic: 'Amino Acids',
             explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
-            title: "Question 1",
             statement: "What is this amino acid?",
             imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
             imgalt: "An amino acid with following R-group: 4-carbons + amine group",
@@ -25,7 +28,7 @@ export default new Vuex.Store({
             isBackContHidden: true,
             isBackDisabled: false,
             isForwardDisabled: false,
-            selected: null,
+            isAnsweredCorrect: null,
             answer: "Lysine",
             choices: [
                 {
@@ -47,6 +50,7 @@ export default new Vuex.Store({
 
         },
         {
+          title: "Question 2",
           topic: 'Amino Acids',
           explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',        
           statement: "What is this amino acid?",
@@ -56,7 +60,7 @@ export default new Vuex.Store({
           isBackContHidden: true,
           isBackDisabled: false,
           isForwardDisabled: false,
-          selected: null,
+          isAnsweredCorrect: null,
           answer: "Lysine",
           choices: [
               {
@@ -79,9 +83,9 @@ export default new Vuex.Store({
       },
       
       {
-        topic: 'Amino Acids',
-        explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
         title: "Question 3",
+        topic: 'Acid-Bases',
+        explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
         statement: "What is this amino acid?",
         imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
         imgalt: "An amino acid with following R-group: 4-carbons + amine group",
@@ -89,7 +93,7 @@ export default new Vuex.Store({
         isBackContHidden: true,
         isBackDisabled: false,
         isForwardDisabled: false,
-        selected: null,
+        isAnsweredCorrect: null,
         answer: "Lysine",
         choices: [
             {
@@ -109,7 +113,238 @@ export default new Vuex.Store({
                 correct: false
             }]
 
-    }
+    },
+    {
+      title: "Question 4",
+      topic: 'Acid-Bases',
+      explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
+      statement: "What is this amino acid?",
+      imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
+      imgalt: "An amino acid with following R-group: 4-carbons + amine group",
+      displayAnswers: false,
+      isBackContHidden: true,
+      isBackDisabled: false,
+      isForwardDisabled: false,
+      isAnsweredCorrect: null,
+      answer: "Lysine",
+      choices: [
+          {
+          name: "Cysteine",
+          correct: false
+          }, 
+          {
+              name: "Arginine",
+              correct: false
+          }, 
+          {
+              name: "Lysine",
+              correct: true
+          },
+          {
+              name: "Histidine",
+              correct: false
+          }]
+
+    },
+    {
+      title: "Question 5",
+      topic: 'Metabolism',
+      explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
+      statement: "What is this amino acid?",
+      imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
+      imgalt: "An amino acid with following R-group: 4-carbons + amine group",
+      displayAnswers: false,
+      isBackContHidden: true,
+      isBackDisabled: false,
+      isForwardDisabled: false,
+      isAnsweredCorrect: null,
+      answer: "Lysine",
+      choices: [
+          {
+          name: "Cysteine",
+          correct: false
+          }, 
+          {
+              name: "Arginine",
+              correct: false
+          }, 
+          {
+              name: "Lysine",
+              correct: true
+          },
+          {
+              name: "Histidine",
+              correct: false
+          }]
+
+  },
+
+  {
+    title: "Question 6",
+    topic: 'Metabolism',
+    explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
+    statement: "What is this amino acid?",
+    imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
+    imgalt: "An amino acid with following R-group: 4-carbons + amine group",
+    displayAnswers: false,
+    isBackContHidden: true,
+    isBackDisabled: false,
+    isForwardDisabled: false,
+    isAnsweredCorrect: null,
+    answer: "Lysine",
+    choices: [
+        {
+        name: "Cysteine",
+        correct: false
+        }, 
+        {
+            name: "Arginine",
+            correct: false
+        }, 
+        {
+            name: "Lysine",
+            correct: true
+        },
+        {
+            name: "Histidine",
+            correct: false
+        }]
+
+},
+
+{
+  title: "Question 7",
+  topic: 'Unit Conversion',
+  explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
+  statement: "What is this amino acid?",
+  imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
+  imgalt: "An amino acid with following R-group: 4-carbons + amine group",
+  displayAnswers: false,
+  isBackContHidden: true,
+  isBackDisabled: false,
+  isForwardDisabled: false,
+  isAnsweredCorrect: null,
+  answer: "Lysine",
+  choices: [
+      {
+      name: "Cysteine",
+      correct: false
+      }, 
+      {
+          name: "Arginine",
+          correct: false
+      }, 
+      {
+          name: "Lysine",
+          correct: true
+      },
+      {
+          name: "Histidine",
+          correct: false
+      }]
+
+},
+
+{
+  title: "Question 8",
+  topic: 'Unit Conversion',
+  explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
+  statement: "What is this amino acid?",
+  imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
+  imgalt: "An amino acid with following R-group: 4-carbons + amine group",
+  displayAnswers: false,
+  isBackContHidden: true,
+  isBackDisabled: false,
+  isForwardDisabled: false,
+  isAnsweredCorrect: null,
+  answer: "Lysine",
+  choices: [
+      {
+      name: "Cysteine",
+      correct: false
+      }, 
+      {
+          name: "Arginine",
+          correct: false
+      }, 
+      {
+          name: "Lysine",
+          correct: true
+      },
+      {
+          name: "Histidine",
+          correct: false
+      }]
+
+},
+
+{
+  title: "Question 9",
+  topic: 'Thermodynamics',
+  explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
+  statement: "What is this amino acid?",
+  imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
+  imgalt: "An amino acid with following R-group: 4-carbons + amine group",
+  displayAnswers: false,
+  isBackContHidden: true,
+  isBackDisabled: false,
+  isForwardDisabled: false,
+  isAnsweredCorrect: null,
+  answer: "Lysine",
+  choices: [
+      {
+      name: "Cysteine",
+      correct: false
+      }, 
+      {
+          name: "Arginine",
+          correct: false
+      }, 
+      {
+          name: "Lysine",
+          correct: true
+      },
+      {
+          name: "Histidine",
+          correct: false
+      }]
+
+},
+
+{
+  title: "Question 10",
+  topic: 'Thermodynamics',
+  explanation: 'Lysine is a base that contains and R-group that consists of an amine followed by four carbons',
+  statement: "What is this amino acid?",
+  imgsrc: "https://assets.fishersci.com/TFS-Assets/CCG/Chemical-Structures/chemical-structure-cas-56-87-1.jpg-650.jpg",
+  imgalt: "An amino acid with following R-group: 4-carbons + amine group",
+  displayAnswers: false,
+  isBackContHidden: true,
+  isBackDisabled: false,
+  isForwardDisabled: false,
+  isAnsweredCorrect: null,
+  answer: "Lysine",
+  choices: [
+      {
+      name: "Cysteine",
+      correct: false
+      }, 
+      {
+          name: "Arginine",
+          correct: false
+      }, 
+      {
+          name: "Lysine",
+          correct: true
+      },
+      {
+          name: "Histidine",
+          correct: false
+      }]
+
+}
+
+
     ],
     results: [
       {
@@ -123,16 +358,69 @@ export default new Vuex.Store({
         description:  "This is your stats"
 
       },
-      
-
     ]
+    // state ends here
   },
   getters: {
-    // Basically store's version of computed 
-    // Useful for whenever multiple components might need the same computed section (keep code dry)
-    //
+    // Store's version of computed 
+
+    getPercentCorrect(state) {
+
+      const percentCorrect = (state.correctAttempts / state.totalAttempts) * 100
+      console.log(percentCorrect)
+      return percentCorrect
+    },
+
+    getPercentIncorrect(state, getters) {
+
+      const percentIncorrect = 100 - getters.getPercentCorrect 
+      return percentIncorrect
+    },
+
+    getPretestCategoriesValues(state) {
+
+       // From question object, extracts the topic property and creates a string (with duplicates)
+       const TopicsArray = state.pretest.map((question) => question.topic)
+
+       // To remove duplicates, convert to a Set
+       // [...new foo] = converts that thing (Set) back to an array 
+       const uniqueTopicsArray = [...new Set(TopicsArray)]
+      
+      // Convert string array to an array of objects
+      let uniqueTopicsObjectArray = uniqueTopicsArray.map((topic) => { 
+        return {name: topic, value: 0}
+      })
+
+      // Iterate through the pretest, and for each question.topic that matches object.name, if question.isAnsweredCorrect is true, increment value
+      state.pretest.forEach((question) => {
+        uniqueTopicsObjectArray.forEach((object) => {
+          if (object.name == question.topic && question.isAnsweredCorrect) {
+            object.value ++ 
+          }
+        })
+      })
+      return uniqueTopicsObjectArray
+  },
+
+  getPretestCategories(state, getters) {
+    const uniqueTopicsObjectArray = getters.getPretestCategoriesValues
+    const pretestCategories = uniqueTopicsObjectArray.map((object) => {
+      return object.name
+    })
+
+    return pretestCategories
     
   },
+  getPretestValues(state, getters) {
+    const uniqueTopicsObjectArray = getters.getPretestCategoriesValues
+    const pretestValues = uniqueTopicsObjectArray.map((object) => {
+      return object.value
+    })
+
+    return pretestValues
+  },
+
+},
   mutations: {
     DISPLAY_ANSWERS(state, question) {
         question.displayAnswers = true
@@ -171,6 +459,12 @@ export default new Vuex.Store({
     if (event.target.textContent == "Stats") {
       state.currentResultsTab = 1;
     }
+  },
+  SET_ANSWERED_CORRECT(state, question) {
+    question.isAnsweredCorrect = true;
+  },
+  SET_ANSWERED_INCORRECT(state, question) {
+    question.isAnsweredCorrect = false;
   }
 },
   actions: {
