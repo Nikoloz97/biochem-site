@@ -1,14 +1,13 @@
 <template>
-    <Pie
+  <Pie
     id="chartId"
     :options="chartOptions"
     :data="chartData"
-    />
+  />
 </template>
-  
 
 <script>
-import { Pie } from 'vue-chartjs'
+import { Pie } from "vue-chartjs";
 
 import {
   Chart as ChartJS,
@@ -16,39 +15,35 @@ import {
   Tooltip,
   Legend,
   ArcElement,
-  CategoryScale
-} from 'chart.js'
+  CategoryScale,
+} from "chart.js";
 
-ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
-
-
+ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 
 export default {
-  name: 'PieChart',
-  components: {Pie},
+  name: "PieChart",
+  components: { Pie },
   data() {
     return {
       chartData: {
-        labels: ['Correct', 'Incorrect'],
+        labels: ["Correct", "Incorrect"],
         datasets: [
           {
-            backgroundColor: ['#41B883', '#E46651'],
-            data: [this.$store.getters.getPercentCorrect, this.$store.getters.getPercentIncorrect]
-          }
-        ]
+            backgroundColor: ["#41B883", "#E46651"],
+            data: [
+              this.$store.getters.getPercentCorrect,
+              this.$store.getters.getPercentIncorrect,
+            ],
+          },
+        ],
       },
       chartOptions: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       },
-
-    }
-
-  }
-
-}
+    };
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

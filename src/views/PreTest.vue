@@ -177,6 +177,10 @@ export default {
   name: "PreTest",
   components: { BarStats, PieScore },
 
+  data() {
+    return {};
+  },
+
   // This is where you can create functions that grabs specific pieces of the state/store data. Functions = CANNOT hold parameters
   computed: {},
 
@@ -200,6 +204,7 @@ export default {
   },
   updated() {
     // alert("updated");
+    // console.log(this.$el.textContent);
   },
 
   methods: {

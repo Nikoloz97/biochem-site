@@ -457,6 +457,8 @@ export default new Vuex.Store({
     question.isAnsweredCorrect = false;
   }
 },
+
+  // this is where API calls are placed (equivalent of component's created method)
   actions: {
   },
   modules: {
