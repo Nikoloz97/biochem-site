@@ -176,12 +176,35 @@ export default {
   // For some reason, name should be "multiword" (i.e. multiple caps)
   name: "PreTest",
   components: { BarStats, PieScore },
-  computed: {
-    // This is where you can create functions that grabs specific pieces of the state/store data
-    // Downside = function cannot contain a parameter
+
+  // This is where you can create functions that grabs specific pieces of the state/store data. Functions = CANNOT hold parameters
+  computed: {},
+
+  // Lifecycle hooks = things to do at each stage of component creation/update
+  beforeCreate() {
+    // alert("beforeCreate");
   },
+  // Created = creation of component, but before its thrown into the DOM
+  created() {
+    // alert("created");
+  },
+  beforeMount() {
+    // alert("beforeMount");
+  },
+  // Mounted = component is thrown on DOM
+  mounted() {
+    // alert("mounted");
+  },
+  beforeUpdate() {
+    // alert("beforeUpdate");
+  },
+  updated() {
+    // alert("updated");
+  },
+
   methods: {
     displayAnswer(question) {
+      console.log(random(0, 5));
       this.$store.commit("DISPLAY_ANSWERS", question);
     },
     displayBackCont(question) {
