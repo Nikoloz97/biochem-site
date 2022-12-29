@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    
+    <nav-bar></nav-bar>
+
+    
     <router-link to="/">Home | </router-link>
     <router-link to="/pretest">Pre-test</router-link>
 
@@ -22,10 +26,11 @@
 
 <script>
 // import LearnSlots from "./components/LearnSlots.vue";
+import NavBar from "./components/NavBar.vue"
 
 export default {
   name: "App",
-  components: {},
+  components: {NavBar},
   data() {
     return {
       Message: "Great job!!",
