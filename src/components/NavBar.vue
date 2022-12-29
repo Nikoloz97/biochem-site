@@ -1,6 +1,6 @@
 <template>
 <div>
-    <b-navbar type="dark" variant="info" sticky="true" class="">
+    <b-navbar type="dark" variant="info" sticky class="">
         <b-navbar-brand href="#"><img class="logo" src="../assets/Logo.png" alt=""> </b-navbar-brand>
         <b-navbar-nav>
             <b-nav-item to="/">Home</b-nav-item>

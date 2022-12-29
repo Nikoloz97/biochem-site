@@ -3,12 +3,8 @@
     
     <nav-bar></nav-bar>
 
-    
-    <router-link to="/">Home | </router-link>
-    <router-link to="/pretest">Pre-test</router-link>
+    <!-- Router-view = basically a placeholder for the component path in a router-link-->
 
-    <!-- Router-view = displays all router-links. 
-         **How does it default to Home View?  -->
     <router-view></router-view>
 
     <!-- Learning how slots work... -->
@@ -52,6 +48,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
