@@ -8,24 +8,24 @@
     <router-view></router-view>
 
     <!-- Learning how slots work... -->
-    <learn-slots ref="learn">
-      <!-- <template #hello
+    <!-- <learn-slots ref="learn"> -->
+    <!-- <template #hello
         >This is the app sending info to "LearningSlots" component
         {{ Message }} <br />
       </template>
 
       <template #hello2="{ source }"> {{ source }} <br /></template> -->
-    </learn-slots>
-    <button @click="changeContent">Hello</button>
+    <!-- </learn-slots>
+    <button @click="changeContent">Hello</button> -->
   </div>
 </template>
 
 <script>
-import LearnSlots from "./components/LearnSlots.vue";
+// import LearnSlots from "./components/LearnSlots.vue";
 
 export default {
   name: "App",
-  components: { LearnSlots },
+  components: {},
   data() {
     return {
       Message: "Great job!!",

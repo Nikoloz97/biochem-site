@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- TODO: Stats tab - Create a horizontal bar graph that subdivides user's score for each topic (2 questions per topic) + resources dropdown (contains links for topics user got 50% or lower)-->
-
     <!-- Pre-test display -->
     <b-container
       class="d-flex justify-content-center"
