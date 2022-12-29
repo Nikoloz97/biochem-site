@@ -4,12 +4,19 @@
     <router-link to="/pretest">Pre-test</router-link>
 
     <!-- Router-view = displays all router-links. 
-         **How does it default to welcome screen?  -->
+         **How does it default to Home View?  -->
     <router-view></router-view>
 
-    <learn-slots
-      >Info here gets sent into the slot element in the component</learn-slots
-    >
+    <!-- Learning how slots work... -->
+    <learn-slots ref="learn">
+      <!-- <template #hello
+        >This is the app sending info to "LearningSlots" component
+        {{ Message }} <br />
+      </template>
+
+      <template #hello2="{ source }"> {{ source }} <br /></template> -->
+    </learn-slots>
+    <button @click="changeContent">Hello</button>
   </div>
 </template>
 
@@ -19,6 +26,17 @@ import LearnSlots from "./components/LearnSlots.vue";
 export default {
   name: "App",
   components: { LearnSlots },
+  data() {
+    return {
+      Message: "Great job!!",
+    };
+  },
+  methods: {
+    // calls on a child component's method
+    changeContent() {
+      this.$refs.learn.changeList();
+    },
+  },
 };
 </script>
 
