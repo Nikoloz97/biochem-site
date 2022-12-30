@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView'
-import PreTest from '@/views/PreTest'
-import FlashCards from '@/views/FlashCards'
+import HomeView from '@/views/Home'
+import Status from '@/views/Status'
+import FlashCards from '@/views/Flash'
 
 Vue.use(VueRouter)
 
@@ -17,9 +17,9 @@ const router = new VueRouter({
         component: HomeView
       },
       {
-        path: '/pretest',
-        name: 'Pretest',
-        component: PreTest
+        path: '/statusExam',
+        name: 'Status',
+        component: Status
       },
       {
         path: '/flashcards',

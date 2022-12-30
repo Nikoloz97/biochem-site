@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Flashcards from '../components/FlashCards.vue'
+import Flashcards from '../components/FlashMain.vue'
 
 export default {
     name: 'FlashCards',

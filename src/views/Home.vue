@@ -1,12 +1,12 @@
 <template>
 <div> 
-<b-container>
-    <b-row align-h="around">
+<b-row align-h="around" class="mt-5">
       <b-card title="Diagnostic Exam"
               img-src="https://catalog.ndsu.edu/gallery/Biochem.jpg"
+              img-height="50%"
               img-alt="Biochemistry stock photo"
-              img-top style="max-width:20rem"
-              class="mb-2" d-flex align-self="center">
+              style="max-width:20rem"
+              class="mb-2">
           <b-card-text>
               <p>Take a short, 10 question assessment to analyze where you're at.</p>
           </b-card-text>
@@ -17,7 +17,8 @@
       <b-card title="Flashcards"
               img-src="https://info.ehl.edu/hubfs/Blog-EHL-Insights/Blog-Header-EHL-Insights/online%20classes.jpeg"
               img-alt="Biochemistry stock photo"
-              img-top style="max-width:20rem"
+              img-height="50%"
+              style="max-width:20rem"
               class="mb-2">
           <b-card-text>
               <p>Make some progress in your flashcard deck</p>
@@ -26,11 +27,8 @@
                                                 variant="primary">Study </b-button></router-link>
 
       </b-card>
-
-      </b-row>
-
-</b-container>
-    </div>
+</b-row>
+</div>
 </template>
 
 <script>
