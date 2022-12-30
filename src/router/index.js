@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '@/views/Home'
 import Status from '@/views/Status'
 import FlashCards from '@/views/Flash'
+import Planner from '@/views/Planner'
 
 Vue.use(VueRouter)
 
@@ -25,8 +26,12 @@ const router = new VueRouter({
         path: '/flashcards',
         name: 'Flashcards',
         component: FlashCards
-      }
-     
+      },
+      {
+        path: '/planner',
+        name: 'Planner',
+        component: Planner
+      },
   ]
 
 })

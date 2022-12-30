@@ -1,6 +1,8 @@
 <template>
 
-<flashcards></flashcards>
+<div>
+    <flashcards></flashcards>
+</div>
 
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- Pre-test display -->
+    <!-- Status Exam display -->
     <b-container
       class="d-flex justify-content-center"
       v-for="(question, index) in $store.state.pretest"
