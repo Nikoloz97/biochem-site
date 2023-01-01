@@ -1,17 +1,20 @@
 <template>
-    <div></div>
+    <!-- TODO: Create Profile page -->
+    <div>
 
+
+    </div>
 </template>
 
 <script>
 // import blank from ''
 
 export default {
-    name: 'template',
+    name: 'Profile',
     components: {},
     data() {
         return {
-
+            
         }
 
     },
@@ -27,4 +30,3 @@ export default {
 
 <style>
 </style>
-
