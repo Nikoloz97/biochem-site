@@ -38,7 +38,22 @@ export default {
       console.log((this.$refs.items[0].textContent = this.list[0]));
     },
   },
+
+  // Lifecycle hooks = things to do at each stage of component creation/update
+  beforeCreate() {
+    // alert("beforeCreate");
+  },
+  // Created = creation of component, but before its thrown into the DOM
+  created() {
+    // alert("created");
+  },
+  beforeMount() {
+    // alert("beforeMount");
+  },
+
+  // Refs go here! 
   mounted() {
+    // alert("mounted");
     // Cool attributes list...
     // For each item, will list out ALL the possible properties/attributes on there...
     // console.log(this.$refs.items);
@@ -66,6 +81,13 @@ export default {
 
     // on page display, user's cursor automatically starts in the input element
     this.$refs.myInput.focus();
+  },
+  beforeUpdate() {
+    // alert("beforeUpdate");
+  },
+  updated() {
+    // alert("updated");
+    // console.log(this.$el.textContent);
   },
 };
 </script>
