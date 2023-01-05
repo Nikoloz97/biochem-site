@@ -1,20 +1,19 @@
 <template>
-
-<div>
-    <flashcards></flashcards>
-</div>
+    <div>
+        <content-main/>
+    </div>
 
 </template>
 
 <script>
-import Flashcards from '../components/FlashMain.vue'
+import ContentMain from '@/components/ContentMain.vue'
 
 export default {
-    name: 'FlashCards',
-    components: {Flashcards},
+    name: 'template',
+    components: {ContentMain},
     data() {
         return {
-            
+
         }
 
     },

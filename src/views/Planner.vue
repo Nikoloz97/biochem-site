@@ -11,6 +11,9 @@ export default {
     name: 'template',
     components: {PlannerMain},
     data() {
+        return {
+            
+        }
 
     },
     computed: {

@@ -4,6 +4,7 @@ import HomeView from '@/views/Home'
 import Status from '@/views/Status'
 import FlashCards from '@/views/Flash'
 import Planner from '@/views/Planner'
+import Content from '@/views/Content'
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,12 @@ const router = new VueRouter({
         name: 'Planner',
         component: Planner
       },
+      {
+        path: '/content',
+        name: 'Content',
+        component: Content
+      },
+
   ]
 
 })

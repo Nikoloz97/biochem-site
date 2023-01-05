@@ -39,7 +39,7 @@
               <b-card-text>
                   <p>Take a short assessment to analyze where you sit</p>
               </b-card-text>
-              <router-link to="/pretest"><b-button class="btn-md"
+              <router-link to="/statusExam"><b-button class="btn-md"
                                                     variant="primary">Take Quiz</b-button></router-link>
           </b-card>
 
@@ -55,6 +55,9 @@ export default {
     name: 'template',
     components: {},
     data() {
+        return {
+
+        }
 
     },
     computed: {

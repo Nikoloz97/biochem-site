@@ -11,6 +11,9 @@ export default {
     name: 'FlashCards',
     components: {},
     data() {
+        return {
+            
+        }
 
     },
     computed: {

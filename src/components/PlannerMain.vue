@@ -12,6 +12,9 @@ export default {
     name: 'template',
     components: {},
     data() {
+        return {
+            
+        }
 
     },
     computed: {
