@@ -9,7 +9,7 @@
 // import blank from ''
 
 export default {
-    name: 'template',
+    name: 'PlannerMain',
     components: {},
     data() {
         return {

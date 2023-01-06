@@ -44,6 +44,8 @@
           </b-card>
 
     </b-row>
+
+
 </div>
 
 </template>
@@ -52,7 +54,7 @@
 // import blank from ''
 
 export default {
-    name: 'template',
+    name: 'HomeFeat',
     components: {},
     data() {
         return {

@@ -9,7 +9,7 @@
 import ContentMain from '@/components/ContentMain.vue'
 
 export default {
-    name: 'template',
+    name: 'Content',
     components: {ContentMain},
     data() {
         return {

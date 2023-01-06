@@ -1,6 +1,7 @@
 <template>
     <div>
-        <b-row align-h="center" class="mt-5"> <h1>Explore</h1></b-row>
+        <b-row align-h="center" class="mt-5"> <h1>Explore Diagrams</h1></b-row>
+            <!-- See styles - making all images the same size broke the animation -->
             <b-row align-h="center">
                 <b-carousel
                 id="carousel-1"
@@ -12,7 +13,10 @@
                 background=""
                 class="carousel"
                 >
+                    <!-- TODO: design = Card column groups: https://bootstrap-vue.org/docs/components/card#card-column-groups -->
                     <!-- TODO: Hook (bind?) the data to an API-->
+                    <!-- TODO: Make images the same dimension -->
+
                     <b-carousel-slide
                     caption="First Slide"
                     text="This is the first slide"

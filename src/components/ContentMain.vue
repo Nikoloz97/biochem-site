@@ -11,7 +11,7 @@
 // import blank from ''
 
 export default {
-    name: 'template',
+    name: 'ContentMain',
     components: {},
     data() {
         return {
