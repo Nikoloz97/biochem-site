@@ -1,21 +1,20 @@
 <template>
-<div>
-    <b-row align-h="center" class="mt-5"> <h1>Chapters</h1></b-row>
-    
+    <div>
+        <b-row align-h="center"><h1>How To</h1></b-row>
 
+    </div>
 
-</div>
 </template>
 
 <script>
 // import blank from ''
 
 export default {
-    name: 'ContentMain',
+    name: 'HowToMain',
     components: {},
     data() {
         return {
-            
+
         }
 
     },

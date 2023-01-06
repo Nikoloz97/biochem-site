@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-row align-h="center" class="mt-5"> <h1>About Us</h1></b-row>
+        <b-row align-h="center" class="mt-5"> <h1>About G-Science</h1></b-row>
 
         <!-- Accordion -->
         <!-- role attribute = used for screen readers -->
