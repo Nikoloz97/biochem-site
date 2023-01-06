@@ -1,6 +1,17 @@
 <template>
   <div>
-    <!-- Status Exam display -->
+
+    <!-- TODO: Fix progress bar (doesn't render/update most of the time) -->
+    <!-- Progress Bar -->
+    <b-progress :max="progressBar.max" height="rem" show-progress >
+      <b-progress-bar :value="progressBar.value">
+        <span v-if="progressBar.value != progressBar.max">Progress: {{ progressBar.value }} / {{ progressBar.max}}</span>
+        <span v-if="progressBar.value == progressBar.max">Completed!</span>
+      </b-progress-bar>
+
+    </b-progress>
+
+    <!-- Question display (before click) -->
     <b-container
       class="d-flex justify-content-center"
       v-for="(question, index) in $store.state.pretest"
@@ -50,14 +61,14 @@
               v-if="index != $store.state.pretest.length - 1"
               :class="{ 'd-none': question.isBackContHidden }"
               :disabled="question.isForwardDisabled"
-              @click="incCurrentQuestion()"
+              @click="incCurrentQuestion(); progressBar.value++"
               >Continue</b-button
             >
 
             <b-button
               v-if="index == $store.state.pretest.length - 1"
               :class="{ 'd-none': question.isBackContHidden }"
-              @click="displayResults()"
+              @click="displayResults(); progressBar.value++"
               >Results</b-button
             >
           </b-container>
@@ -120,6 +131,7 @@
       </b-card>
     </b-container>
 
+    <!-- Score/stats display -->
     <b-container
       class="d-flex justify-content-center"
       v-if="$store.state.isResultsDisplayed"
@@ -176,7 +188,12 @@ export default {
   components: { BarStats, PieScore },
 
   data() {
-    return {};
+    return {
+      progressBar: {
+        max: this.$store.state.pretest.length,
+        value: 0,
+      },
+    };
   },
 
   // This is where you can create functions that grabs specific pieces of the state/store data. Functions = CANNOT hold parameters

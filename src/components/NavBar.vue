@@ -4,7 +4,7 @@
         <b-navbar-brand href="#"><img class="logo" src="../assets/Logo.png" alt=""> </b-navbar-brand>
         <b-navbar-nav>
             <b-nav-item to="">Home</b-nav-item>
-            <b-nav-item to="/content">Library</b-nav-item>
+            <b-nav-item to="/content">Content</b-nav-item>
             <b-nav-item to="/flashcards">Study</b-nav-item>
             <b-nav-item to="/planner">Planner</b-nav-item>
             <b-nav-item to="/statusExam">Status Exam</b-nav-item>
