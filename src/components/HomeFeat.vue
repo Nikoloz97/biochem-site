@@ -3,13 +3,12 @@
 <div>
     <b-row align-h="center" class="mt-5"> <h1>Featured</h1></b-row>
 
-    <b-row align-h="around" class="mt-5">
+    <b-row align-h="around" class="mt-4 p-4 bg-light">
         <b-card title="Planner"
                   img-src="https://www.techrepublic.com/wp-content/uploads/2022/07/only-display-outlook-calendar.jpeg"
                   img-height="50%"
                   img-alt="Biochemistry stock photo"
-                  style="max-width:20rem"
-                  class="mb-2">
+                  style="max-width:20rem">
               <b-card-text>
                   <p>Create and update a custom planner for upcoming exams/projects</p>
               </b-card-text>
@@ -21,8 +20,7 @@
                   img-src="https://info.ehl.edu/hubfs/Blog-EHL-Insights/Blog-Header-EHL-Insights/online%20classes.jpeg"
                   img-alt="Biochemistry stock photo"
                   img-height="50%"
-                  style="max-width:20rem"
-                  class="mb-2">
+                  style="max-width:20rem">
               <b-card-text>
                   <p>Make some progress in your flashcard deck</p>
               </b-card-text>
@@ -34,8 +32,7 @@
                   img-src="https://catalog.ndsu.edu/gallery/Biochem.jpg"
                   img-height="50%"
                   img-alt="Biochemistry stock photo"
-                  style="max-width:20rem"
-                  class="mb-2">
+                  style="max-width:20rem">
               <b-card-text>
                   <p>Take a short assessment to analyze where you sit</p>
               </b-card-text>

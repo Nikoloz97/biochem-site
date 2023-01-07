@@ -1,7 +1,18 @@
 <template>
 <div>
-    <b-row align-h="center" class="mt-5"> <h1>Content</h1></b-row>
-    
+<b-container>
+    <b-row class="mt-2">
+        <b-col>This is some content</b-col>
+        <b-col>This is more content</b-col>
+        <b-col>This is even more content</b-col>
+    </b-row>
+
+    <b-row class="mt-5">
+        <b-col>This is some content</b-col>
+        <b-col>This is more content</b-col>
+        <b-col>This is even more content</b-col>
+    </b-row>
+</b-container>    
 
 
 </div>
