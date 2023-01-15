@@ -1,13 +1,9 @@
 <template>
     <div>
-        <b-row align-h="center" class="mt-5"> <h1>Content</h1></b-row>
+        <b-row align-h="center" class="mt-5"></b-row>
+    
         <b-row>
-            <b-button @click="NavToggle" class="ml-5" styles="">{{CollapseDisplay}}</b-button>
-        </b-row>
-       
-        <b-row>
-            <b-col cols="2" v-show="displayNav % 2 == 0">
-                
+            <b-col cols="2">
                 <b-row><content-nav/></b-row>
             </b-col>
             <b-col><content-main/></b-col>
