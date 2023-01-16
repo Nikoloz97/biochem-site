@@ -1,28 +1,36 @@
 <template>
     <div>
         <!-- Navbar -->
-        <b-navbar>
-            <b-navbar-nav>
-                <b-button>Hide</b-button>
-            </b-navbar-nav>
+        <b-navbar >
+            <b-navbar-nav >
+                <b-nav-form>
+                    <!-- Regular version -->
+                    <b-form-input   v-show="!isCompact"
+                                    class="ml-5 col-6" 
+                                    placeholder="Search"></b-form-input>
+                    <b-button v-show="!isCompact" class="ml-1" size="sm" type="Submit">Search</b-button>
 
-            <b-navbar-nav class="ml-auto">
-                <b-nav-form >
-                    <b-form-input class="ml-auto col-6" placeholder="Search"></b-form-input>
-                    <b-button class="ml-1" size="sm" type="Submit">Search</b-button>
+                    <!-- Compact version -->
+                    <b-form-input   v-show="isCompact"
+                                    class="ml-1 col-3" 
+                                    ></b-form-input>
+                    <b-button v-show="isCompact" class="ml-1" size="sm" type="Submit">Search</b-button>
                 </b-nav-form>
             </b-navbar-nav>
         </b-navbar>
 
         <!-- Main section -->
-        <b-card>
+        <b-card :class="{compact_list_items: isCompact}">
             <b-card-header>
-                <h4>Chapter 1</h4>
+                <!-- toggling nav. Pressed.sync attribute = toggles boolean upon click-->
+                <b-button :pressed.sync="isCompact">
+                    <h4 :class="{compact_chapters: isCompact}">Chapter 1</h4>
+                </b-button>
             </b-card-header>
 
             <b-card-body>
-                <b-card-title>Amino Acids</b-card-title>
-                <b-card-text>Learning the structure, behavior, and functionality of the essential Amino Acids</b-card-text>
+                <b-card-title >Amino Acids</b-card-title>
+                <b-card-text v-show="!isCompact">Learning the structure, behavior, and functionality of the essential Amino Acids</b-card-text>
             </b-card-body>
 
             <b-list-group>
@@ -32,13 +40,16 @@
             </b-list-group>
 
 
+            <!-- Main Section 2 (hard-coded) -->
             <b-card-header>
-                <h4>Chapter 2</h4>
+                <b-button :pressed.sync="isCompact">
+                    <h4 :class="{compact_chapters: isCompact}">Chapter 2</h4>
+                </b-button>
             </b-card-header>
 
             <b-card-body>
                 <b-card-title>Amino Acids</b-card-title>
-                <b-card-text>Learning the structure, behavior, and functionality of the essential Amino Acids</b-card-text>
+                <b-card-text  v-show="!isCompact">Learning the structure, behavior, and functionality of the essential Amino Acids</b-card-text>
             </b-card-body>
 
             <b-list-group>
@@ -62,7 +73,7 @@
         components: {},
         data() {
             return {
-                
+                isCompact: false,
             }
     
         },
@@ -70,6 +81,7 @@
     
         },
         methods: {
+            
     
         }
     }
@@ -77,5 +89,23 @@
     </script>
     
     <style>
+    .compact_nav {
+        width: 50%;
+    }
+    .compact_chapters {
+        font-size: 0.5rem;
+    }
+
+    .compact_titles {
+        width: 50%;
+    }
+
+    .compact_list_items {
+        width: 50%;
+        font-size: 0.5rem;
+    }
+
+    
+    
     </style>
     
