@@ -3,25 +3,25 @@
         <!-- Navbar -->
         <b-navbar >
             <b-navbar-nav >
-                <b-nav-form>
-                    <!-- TODO: Make search bar filter out chapters based on input-->
+                    <!-- TODO: Fix chapterItems (potential solution = splice string array and create one large string to search on) -->
                     <!-- Regular version -->
                     <b-form-input   v-show="!isCompact"
+                                    v-model="Search"
                                     class="ml-5 col-6" 
                                     placeholder="Search"></b-form-input>
                     <b-button v-show="!isCompact" class="ml-1" size="sm" type="Submit">Search</b-button>
 
                     <!-- Compact version -->
                     <b-form-input   v-show="isCompact"
+                                    v-model="Search"
                                     class="ml-1 col-3" 
                                     ></b-form-input>
                     <b-button v-show="isCompact" class="ml-1" size="sm" type="Submit">Search</b-button>
-                </b-nav-form>
             </b-navbar-nav>
         </b-navbar>
 
         <!-- Main section -->
-        <b-card v-for="chapter in Chapters"
+        <b-card v-for="chapter in filteredChapters"
                 :key="chapter.Number"
                 :class="{compact_list_items: isCompact}">
 
@@ -43,28 +43,6 @@
 
         </b-card>      
 
-
-            <!-- Main Section 2 (hard-coded) -->
-            <!-- <b-card-header>
-                <b-button :pressed.sync="isCompact">
-                    <h4 :class="{compact_chapters: isCompact}">Chapter 2</h4>
-                </b-button>
-            </b-card-header>
-
-            <b-card-body>
-                <b-card-title>Amino Acids</b-card-title>
-                <b-card-text  v-show="!isCompact">Learning the structure, behavior, and functionality of the essential Amino Acids</b-card-text>
-            </b-card-body>
-
-            <b-list-group>
-                <b-list-group-item> Structure </b-list-group-item>
-                <b-list-group-item> Behavior </b-list-group-item>
-                <b-list-group-item> Functionality </b-list-group-item>
-            </b-list-group> -->
-            
-
-    
-    
     </div>
     </template>
     
@@ -86,15 +64,15 @@
                     },
                     {
                         Number: "Chapter 2",
-                        Title: "Amino Acids",
-                        Description: "Learning the structure, behavior, and functionality of the essential Amino Acids",
-                        ChapterItems: ["Structure", "Behavior", "Functionality"]
+                        Title: "Tacos",
+                        Description: "Tacos are the best",
+                        ChapterItems: ["Wheat", "Corn", "Multigrain"]
                     }, 
                     {
                         Number: "Chapter 3",
-                        Title: "Amino Acids",
-                        Description: "Learning the structure, behavior, and functionality of the essential Amino Acids",
-                        ChapterItems: ["Structure", "Behavior", "Functionality"]
+                        Title: "Burritos",
+                        Description: "Burritos come at a close second",
+                        ChapterItems: ["Beef", "Chicken", "Salsa"]
 
                     }
                 ],
@@ -104,9 +82,17 @@
     
         },
         computed: {
-            // filteredSearch: function() {
-            //     return 
-            // }
+            filteredChapters: function() {
+                return this.Chapters.filter((chapter) => {
+                    // match method = matches search term with the title
+                    return chapter.Title.toLowerCase().match(this.Search.toLowerCase()) 
+                            || chapter.Description.toLowerCase().match(this.Search.toLowerCase())
+                            // Looping through chapterItems - doesn't work...)
+                            || chapter.ChapterItems.forEach(chapterItem => {
+                                chapterItem.toLowerCase().match(this.Search.toLowerCase())
+                            });
+                })
+            }
     
         },
         methods: {
