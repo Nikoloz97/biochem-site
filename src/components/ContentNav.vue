@@ -1,9 +1,10 @@
 <template>
+                <!-- TODO: Fix chapterItems (potential solution = splice string array and create one large string to search on) -->
+
     <div>
         <!-- Navbar -->
         <b-navbar >
             <b-navbar-nav >
-                    <!-- TODO: Fix chapterItems (potential solution = splice string array and create one large string to search on) -->
                     <!-- Regular version -->
                     <b-form-input   v-show="!isCompact"
                                     v-model="Search"
@@ -87,10 +88,11 @@
                     // match method = matches search term with the title
                     return chapter.Title.toLowerCase().match(this.Search.toLowerCase()) 
                             || chapter.Description.toLowerCase().match(this.Search.toLowerCase())
-                            // Looping through chapterItems - doesn't work...)
-                            || chapter.ChapterItems.forEach(chapterItem => {
-                                chapterItem.toLowerCase().match(this.Search.toLowerCase())
-                            });
+                            // Looping and filtering through each chapterItems = doesn't work...)
+                            // || chapter.ChapterItems.forEach(chapterItem => {
+                            //     chapterItem.toLowerCase().match(this.Search.toLowerCase())
+                            // })
+                            || chapter.ChapterItems.toString().toLowerCase().match(this.Search.toLowerCase())
                 })
             }
     
