@@ -1,15 +1,43 @@
 <template>
+    <b-container class="vh-100">
+            <b-row class="h-100">
+                <b-col>
+                
+                    <b-row class="h-100" align-v="center">
+                        <b-col>
+                            <planner-to-dos></planner-to-dos>
+                        </b-col>
+                    </b-row>
+                
+                </b-col>
+                
+                <b-col>
+                    <b-row class="h-50" align-v="center">
+                        <b-col>
+                            <planner-calendar></planner-calendar>
+                        </b-col>
+                    </b-row>
+                    <b-row class="h-50" align-v="center">
+                        <b-col>
+                            <planner-listing></planner-listing>
+                        </b-col>
+                    </b-row>
+                </b-col>
+            </b-row>
+    </b-container>
 
-    <planner-main></planner-main>
 
 </template>
 
 <script>
-import PlannerMain from '../components/PlannerMain.vue'
+import PlannerCalendar from '../components/PlannerCalendar.vue'
+import PlannerListing from '../components/PlannerListing.vue'
+import PlannerToDos from '@/components/PlannerToDos.vue'
+
 
 export default {
-    name: 'template',
-    components: {PlannerMain},
+    name: 'Planner',
+    components: {PlannerCalendar, PlannerListing, PlannerToDos},
     data() {
         return {
             

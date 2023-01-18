@@ -1,6 +1,6 @@
 <template>
     <div>
-        Why welcome good sir...
+        {{ text }}
     </div>
 
 </template>
@@ -9,11 +9,11 @@
 // import blank from ''
 
 export default {
-    name: 'PlannerMain',
+    name: 'PlannerToDo',
     components: {},
     data() {
         return {
-            
+            text: "This is the todos"
         }
 
     },
