@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!-- TODO: Move components -> status exam -> main (+ remove child components PieScore + BarStats)  -->
+    <!-- TODO: Should toggle between Main, Stats1, and Stats 2 -->
+              <!-- In Main component, once results button clicked -> Stats 1 + 2 components   -->
+
     <!-- Progress Bar -->
     <b-progress :max="progressBar.max" height="rem" show-progress >
       <b-progress-bar :value="progressBar.value">

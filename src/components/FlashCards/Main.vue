@@ -8,7 +8,7 @@
 <script>
 
 export default {
-    name: 'Flashcards',
+    name: 'FlashCards',
     components: {},
     data() {
         return {
