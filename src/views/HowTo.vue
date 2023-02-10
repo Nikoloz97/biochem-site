@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HowToMain from  '../components/HowToMain.vue'
+import HowToMain from  '../components/HowTo/Main.vue'
 
 export default {
     name: 'template',

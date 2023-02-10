@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import PlannerCalendar from '../components/PlannerCalendar.vue'
-import PlannerListing from '../components/PlannerListing.vue'
-import PlannerToDos from '@/components/PlannerToDos.vue'
+import PlannerCalendar from '../components/Planner/Calendar.vue'
+import PlannerListing from '../components/Planner/Listing.vue'
+import PlannerToDos from '@/components/Planner/ToDos.vue'
 
 
 export default {

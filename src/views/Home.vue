@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Featured from '../components/HomeFeat.vue'
-import Explore from '../components/HomeExplore.vue'
-import About from '../components/HomeAbout.vue'
+import Featured from '../components/Home/Featured.vue'
+import Explore from '../components/Home/Explore.vue'
+import About from '../components/Home/About.vue'
 
 
 export default {

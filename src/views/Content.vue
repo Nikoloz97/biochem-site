@@ -7,14 +7,15 @@
                 <b-row><content-nav/></b-row>
             </b-col>
             <b-col><content-main/></b-col>
+            
         </b-row>
     </div>
 
 </template>
 
 <script>
-import ContentMain from '@/components/ContentMain.vue'
-import ContentNav from '@/components/ContentNav.vue'
+import ContentMain from '@/components/ContentMain/Default.vue'
+import ContentNav from '@/components/Content/Nav.vue'
 
 export default {
     name: 'Content',
