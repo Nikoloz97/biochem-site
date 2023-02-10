@@ -1,39 +1,45 @@
 <template>
 
     <div>
-        <!-- Navbar -->
+        <!-- Navbar (left-side of Content view) -->
         <b-card :class="{compact_card: isCompact}">
+
+             <!-- Search input field + button -->
             <b-navbar >
                 <b-navbar-nav >
-                        <!-- Regular version -->
+                        <!-- Regular -->
                         <b-form-input   v-show="!isCompact"
                                         v-model="Search"
                                         class="ml-4 col-6"
                                         placeholder="Search"></b-form-input>
+
+                        <!-- Compact -->
                         <b-form-input   v-show="isCompact"
                                         v-model="Search"
                                         class="ml-2 col-6"
                                         placeholder="Search"></b-form-input>
                         <b-button variant="outline-secondary" class="ml-1" size="sm" type="Submit">Search</b-button>
-                        <!-- Compact version -->
-                        
                 </b-navbar-nav>
             </b-navbar>
 
+            <!-- Menu button -->
+            <!-- Pressed.sync = toggles boolean upon click-->
             <b-button  
                        :pressed.sync="isCompact" 
                        variant="outline-info"
                        class="col-7 mb-2">Menu</b-button>
 
-            <!-- Main section -->
+
+            
             <b-card v-for="chapter in filteredChapters"
                     :key="chapter.Number">
                 <b-card-header>
-                    <!-- toggling nav. Pressed.sync attribute = toggles boolean upon click-->
                     <b-button 
                                variant="outline-secondary" >
                         <h4 :class="{compact_chapters: isCompact}">{{ chapter.Number }}</h4>
                     </b-button>
+
+
                 </b-card-header>
                 <b-card-body>
                     <b-card-title >{{ chapter.Title }}</b-card-title>
