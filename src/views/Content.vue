@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ContentMain from '@/components/ContentMain/Default.vue'
+import ContentMain from '@/components/Content/Main/Default.vue'
 import ContentNav from '@/components/Content/Nav.vue'
 
 export default {
