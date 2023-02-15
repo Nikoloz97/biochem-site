@@ -1,17 +1,8 @@
 <template>
-    <div>
-      <!-- TODO: Move components -> status exam -> main (+ remove child components PieScore + BarStats)  -->
-      <!-- TODO: Should toggle between Main, Stats1, and Stats 2 -->
-                <!-- In Main component, once results button clicked -> Stats 1 + 2 components   -->
-  
+    <div>  
       <!-- Progress Bar -->
-      <b-progress :max="progressBar.max" height="rem" show-progress >
-        <b-progress-bar :value="progressBar.value">
-          <span v-if="progressBar.value != progressBar.max">Progress: {{ progressBar.value }} / {{ progressBar.max}}</span>
-          <span v-if="progressBar.value == progressBar.max">Completed!</span>
-        </b-progress-bar>
-  
-      </b-progress>
+      
+      <progress-bar :BarState="progressBar"/>
   
       <!-- Question display (before click) -->
       <b-container
@@ -137,14 +128,15 @@
   </template>
   
   <script>
-  
+  import ProgressBar from "./ProgressBar.vue";
+
   // imported lodash
   import { random } from "lodash";
   
   export default {
     // For some reason, name should be "multiword" (i.e. multiple caps)
     name: "PreTest",
-    components: { BarStats, PieScore },
+    components: { ProgressBar},
   
     data() {
       return {
@@ -152,6 +144,7 @@
           max: this.$store.state.pretest.length,
           value: 0,
         },
+        
       };
     },
   
@@ -261,10 +254,7 @@
       displayResults() {
         this.$store.commit("DISPLAY_RESULTS");
       },
-  
-      goToResultTab(event) {
-        this.$store.commit("GO_TO_RESULT_TAB", event);
-      },
+
     },
   };
   </script>

@@ -53,7 +53,7 @@ import BarStats from "@/components/StatusExam/Results/Bar.vue";
 
 export default {
     name: 'Results',
-    components: {},
+    components: {PieScore, BarStats},
     data() {
         return {
 
@@ -64,6 +64,9 @@ export default {
 
     },
     methods: {
+        goToResultTab(event) {
+        this.$store.commit("GO_TO_RESULT_TAB", event);
+      },
 
     }
 }
