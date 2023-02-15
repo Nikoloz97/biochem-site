@@ -1,29 +1,23 @@
 <template>
-    <div>
-        <b-row align-h="center" class="mt-5"></b-row>
-    
-        <b-row>
-            <b-col cols="2">
-                <b-row><content-nav/></b-row>
-            </b-col>
-            <b-col><content-main/></b-col>
-            
-        </b-row>
-    </div>
+
+
+<div>
+    <Content/>
+</div>
+
 
 </template>
 
 <script>
-import ContentMain from '@/components/Content/Main/Default.vue'
-import ContentNav from '@/components/Content/Nav.vue'
+import Content from '@/components/Content/Content.vue'
+
 
 export default {
-    name: 'Content',
-    components: {ContentMain, ContentNav},
+    name: 'ContentView',
+    components: {Content},
     data() {
         return {
-            displayNav: 2,
-            CollapseDisplay: "Hide Nav"
+
         }
 
     },
@@ -31,16 +25,7 @@ export default {
 
     },
     methods: {
-        NavToggle() {
-            this.displayNav++
-            if (this.displayNav % 2 != 0) {
-            this.CollapseDisplay = "Show Nav"
-            }
-            else {
-                this.CollapseDisplay = "Hide Nav"
 
-            }
-        }
 
     }
 }

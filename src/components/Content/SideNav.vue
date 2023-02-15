@@ -31,10 +31,10 @@
 
 
             
-            <b-card v-for="chapter in filteredChapters"
+            <b-card v-for="chapter,index in filteredChapters"
                     :key="chapter.Number">
                 <b-card-header>
-                    <b-button 
+                    <b-button @click="setDisplay(index)"
                                variant="outline-secondary" >
                         <h4 :class="{compact_chapters: isCompact}">{{ chapter.Number }}</h4>
                     </b-button>
@@ -102,6 +102,9 @@
     
         },
         methods: {
+            setDisplay(index) {
+                this.$store.commit("SET_DISPLAY", index)
+            },
             
     
         }

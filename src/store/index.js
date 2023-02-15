@@ -351,7 +351,22 @@ export default new Vuex.Store({
         description:  "This is your stats"
 
       },
-    ]
+    ],
+    ContentList: [
+      {
+          title: 'Chapter 1',
+          isDisplayed: true,
+          desc1: 'This is 1 content',
+          desc2: 'This is 1 more content',
+          
+      },
+      {
+          title: 'Chapter 2',
+          isDisplayed: true,
+          desc1: 'This is 2 content',
+          desc2: 'This is 2 more content',
+      },
+  ],
     // state ends here
   },
   getters: {
@@ -455,7 +470,20 @@ export default new Vuex.Store({
   },
   SET_ANSWERED_INCORRECT(state, question) {
     question.isAnsweredCorrect = false;
+  },
+  SET_DISPLAY(state, index) {
+    for (let i = 0; i < state.ContentList.length; i++) {
+      if (i == index) {
+        state.ContentList[index].isDisplayed = true;
+      }
+      else {
+        state.ContentList[i].isDisplayed = false;
+      }
+
+    }
+
   }
+  
 },
 
   // this is where API calls are placed (equivalent of component's created method)
