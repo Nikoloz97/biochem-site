@@ -3,9 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// TODO: Get rid of a lot of this stuff? Store material = should be stuff that is reusable by a lot of components 
-// Its going to be a lot of work. If you're not up for it, rename stuff so its more specific to pretest stuff (e.g. totalAttempts -> pretest_totalAttempts)
-
 export default new Vuex.Store({
   state: {
     correctMsg: "Nice Work!",

@@ -179,8 +179,8 @@
 </template>
 
 <script>
-import PieScore from "@/components/StatusExam/Stats1.vue";
-import BarStats from "@/components/StatusExam/Stats2.vue";
+import PieScore from "@/components/StatusExam/Results/Pie.vue";
+import BarStats from "@/components/StatusExam/Results/Bar.vue";
 // imported lodash
 import { random } from "lodash";
 
