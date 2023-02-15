@@ -362,7 +362,7 @@ export default new Vuex.Store({
       },
       {
           title: 'Chapter 2',
-          isDisplayed: true,
+          isDisplayed: false,
           desc1: 'This is 2 content',
           desc2: 'This is 2 more content',
       },
