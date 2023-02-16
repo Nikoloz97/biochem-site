@@ -333,20 +333,20 @@ export default new Vuex.Store({
       }]
 
 }
-
-
     ],
-    results: [
+
+    ResultTabs: [
       {
         name: "Score",
         description: "This is your score"
-
-
       },
       {
         name: "Stats",
         description:  "This is your stats"
-
+      },
+      {
+        name: "Summary",
+        description:  "This is your summary"
       },
     ],
     ContentList: [
@@ -366,9 +366,9 @@ export default new Vuex.Store({
   ],
     // state ends here
   },
-  getters: {
-    // Store's version of computed 
 
+  // Store's version of computed 
+  getters: {
     getPercentCorrect(state) {
 
       const percentCorrect = (state.correctAttempts / state.totalAttempts) * 100
@@ -382,6 +382,7 @@ export default new Vuex.Store({
       return percentIncorrect
     },
 
+    // Returns an object array of {topic, value} (value = number of questions answered correctly)
     getPretestCategoriesValues(state) {
 
        // From question object, extracts the topic property and creates a string (with duplicates)
@@ -407,6 +408,7 @@ export default new Vuex.Store({
       return uniqueTopicsObjectArray
   },
 
+
   getPretestCategories(state, getters) {
     const uniqueTopicsObjectArray = getters.getPretestCategoriesValues
     const pretestCategories = uniqueTopicsObjectArray.map((object) => {
@@ -424,6 +426,18 @@ export default new Vuex.Store({
 
     return pretestValues
   },
+
+  // Returns list of {category, value} where value < 2 (i.e. less than 100%), ordered by lowest to highest
+
+  getPretestSuggestions (state, getters) {
+    // Filtered list of categories where user missed at least one question
+    const Suggestions = getters.getPretestCategoriesValues.filter((object) => object.value < 2);
+
+    // Sort by ascending value property
+    const sortedList = Suggestions.sort((a, b) => (a.value > b.value) ? 1 : -1)
+    
+    return sortedList
+  }
 
 },
   mutations: {
@@ -460,6 +474,9 @@ export default new Vuex.Store({
     }
     if (event.target.textContent == "Stats") {
       state.currentResultsTab = 1;
+    }
+    if (event.target.textContent == "Summary") {
+      state.currentResultsTab = 2;
     }
   },
   SET_ANSWERED_CORRECT(state, question) {
