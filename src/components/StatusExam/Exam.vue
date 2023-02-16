@@ -61,7 +61,7 @@
               <b-button
                 v-if="index == $store.state.pretest.length - 1"
                 :class="{ 'd-none': question.isBackContHidden }"
-                @click="displayResults(); progressBar.value++"
+                @click="displayResults(); progressBar.value++; addToLog()"
                 >Results</b-button
               >
             </b-container>
@@ -176,7 +176,6 @@
   
     methods: {
       displayAnswer(question) {
-        console.log(random(0, 5));
         this.$store.commit("DISPLAY_ANSWERS", question);
       },
       displayBackCont(question) {
@@ -253,6 +252,26 @@
   
       displayResults() {
         this.$store.commit("DISPLAY_RESULTS");
+      },
+      addToLog() {
+        // Get the date
+        const date = new Date();
+
+        // Just get suggestedCategoryNames
+        const SuggestedCategoryNames = this.$store.getters.getPretestSuggestions.map((obj) => obj.name)
+
+        // Create lob object
+        const logObj = {
+          Date: `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`,
+          Type: "Status Exam",
+          Suggested: SuggestedCategoryNames.toString(),
+        }
+        
+        console.log(logObj)
+
+
+        // Add to log list in store
+        this.$store.commit("ADD_TO_LOG", logObj)
       },
 
     },

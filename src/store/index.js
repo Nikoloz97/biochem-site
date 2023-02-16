@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+
+    // SatusExam
     correctMsg: "Nice Work!",
     incorrectMsg: "Better luck next time...",
     completed: false,
@@ -13,6 +15,7 @@ export default new Vuex.Store({
     currentQuestion: 0,
     currentResultsTab: 0,
     isResultsDisplayed: false,
+
     pretest: [
         {
             title: "Question 1",
@@ -349,6 +352,8 @@ export default new Vuex.Store({
         description:  "This is your summary"
       },
     ],
+    
+    // Content
     ContentList: [
       {
           title: 'Chapter 1',
@@ -364,6 +369,13 @@ export default new Vuex.Store({
           desc2: 'This is 2 more content',
       },
   ],
+  
+  // Planner
+  LogHistory: []
+
+
+
+
     // state ends here
   },
 
@@ -468,6 +480,13 @@ export default new Vuex.Store({
   DISPLAY_RESULTS (state) {
     state.isResultsDisplayed = true;
   },
+
+  // Additions come from the statusExam and Content (once add subchapter to flashcard deck)
+  ADD_TO_LOG (state, logObj) {
+    // adds to the start of the array
+    state.LogHistory.unshift(logObj)
+  },
+
   GO_TO_RESULT_TAB (state, event) {
     if (event.target.textContent == "Score") {
       state.currentResultsTab = 0;
