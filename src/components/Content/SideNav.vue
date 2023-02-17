@@ -63,27 +63,7 @@
         data() {
             return {
                 isCompact: false,
-                Chapters: [
-                    {
-                        Number: "Chapter 1",
-                        Title: "Amino Acids",
-                        Description: "Learning the structure, behavior, and functionality of the essential Amino Acids",
-                        ChapterItems: ["Structure", "Behavior", "Functionality"]
-                    },
-                    {
-                        Number: "Chapter 2",
-                        Title: "Tacos",
-                        Description: "Tacos are the best",
-                        ChapterItems: ["Wheat", "Corn", "Multigrain"]
-                    }, 
-                    {
-                        Number: "Chapter 3",
-                        Title: "Burritos",
-                        Description: "Burritos come at a close second",
-                        ChapterItems: ["Beef", "Chicken", "Salsa"]
-
-                    }
-                ],
+                Chapters: this.$store.state.ContentList,
                 Search: "",
 
             }
@@ -92,7 +72,7 @@
         computed: {
             filteredChapters: function() {
                 return this.Chapters.filter((chapter) => {
-                    // match method = matches search term with the title
+                    // match method = matches search term with a given string
                     return chapter.Title.toLowerCase().match(this.Search.toLowerCase()) 
                             || chapter.Description.toLowerCase().match(this.Search.toLowerCase())
                             // toString = converts string array into one long string

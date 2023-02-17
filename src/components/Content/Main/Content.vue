@@ -1,6 +1,10 @@
 <template>
     <div>
 
+        <!-- Content Navbar -->
+        <Nav/>
+
+        <!-- Main content -->
     <b-card>
         <b-container v-for="chapter in $store.state.ContentList"  :key="chapter.title">
             <div v-if="chapter.isDisplayed">
@@ -26,10 +30,11 @@
 
 <script>
 // import blank from ''
+import Nav from './Nav.vue';
 
 export default {
-    name: 'Chapter',
-    components: {},
+    name: 'Content',
+    components: {Nav},
     props: [],
     data() {
         return {

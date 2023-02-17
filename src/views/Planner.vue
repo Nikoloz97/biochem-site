@@ -1,11 +1,11 @@
 <template>
-    <b-container class="vh-100">
+    <b-container >
             <b-row class="h-100">
                 <b-col>
                 
                     <b-row class="h-100" align-v="center">
                         <b-col>
-                            <planner-to-dos></planner-to-dos>
+                            <b-card><planner-to-dos/></b-card>
                         </b-col>
                     </b-row>
                 
@@ -14,12 +14,12 @@
                 <b-col>
                     <b-row class="h-50" align-v="center">
                         <b-col>
-                            <planner-calendar></planner-calendar>
+                            <b-card><planner-calendar/></b-card>
                         </b-col>
                     </b-row>
                     <b-row class="h-50" align-v="center">
                         <b-col>
-                            <planner-listing></planner-listing>
+                            <b-card><planner-listing/></b-card>
                         </b-col>
                     </b-row>
                 </b-col>
@@ -31,7 +31,7 @@
 
 <script>
 import PlannerCalendar from '../components/Planner/Calendar.vue'
-import PlannerListing from '../components/Planner/Listing.vue'
+import PlannerListing from '../components/Planner/History.vue'
 import PlannerToDos from '@/components/Planner/ToDos.vue'
 
 

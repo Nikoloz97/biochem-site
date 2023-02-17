@@ -9,6 +9,8 @@
           body-class="text-center"
           header-tag="nav"
         >
+
+        <!-- Tabs (score, stats, summary) -->
           <template #header>
             <b-nav
               card-header
@@ -24,12 +26,17 @@
                 @click="goToResultTab($event)"
                 >Stats</b-nav-item
               >
+              <b-nav-item
+                :active="$store.state.currentResultsTab == 2"
+                @click="goToResultTab($event)"
+                >Summary</b-nav-item
+              >
             </b-nav>
           </template>
   
           <!-- Results display -->
           <b-container
-            v-for="(result, index) in $store.state.results"
+            v-for="(result, index) in $store.state.ResultTabs"
             :key="index"
           >
             <b-card-body v-if="index == $store.state.currentResultsTab">
@@ -37,6 +44,8 @@
               <b-card-text>
                 <pie-score v-if="result.name === 'Score'" />
                 <bar-stats v-if="result.name === 'Stats'" />
+                <Summary v-if="result.name === 'Summary'"/>
+
               </b-card-text>
             </b-card-body>
           </b-container>
@@ -50,10 +59,11 @@
 // import blank from ''
 import PieScore from "@/components/StatusExam/Results/Pie.vue";
 import BarStats from "@/components/StatusExam/Results/Bar.vue";
+import Summary from "./Summary.vue";
 
 export default {
     name: 'Results',
-    components: {PieScore, BarStats},
+    components: {PieScore, BarStats, Summary},
     data() {
         return {
 

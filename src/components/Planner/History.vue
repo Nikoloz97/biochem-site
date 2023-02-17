@@ -1,7 +1,7 @@
 <template>
     <div>
         {{ text }}
-        <b-table sticky-header striped hover :items="items"></b-table>
+        <b-table sticky-header striped hover :items="actualList"></b-table>
     </div>
 
     
@@ -17,7 +17,8 @@ export default {
     data() {
         return {
             text: "This is the History",
-            items: [
+            actualList: this.$store.state.LogHistory,
+            mockList: [
                 {Date: '1/1/2022', Type: "Status Exam", Suggested: "Amino acids, Thermodynamics" },
                 {Date: '1/2/2022', Type: "Flashcard Addition", Suggested: "Acid-base, Ksp"},
                 {Date: '1/2/2022', Type: "Status Exam", Suggested: "Amino acids, Thermodynamics" },
@@ -30,8 +31,8 @@ export default {
                 {Date: '1/2/2022', Type: "Flashcard Addition", Suggested: "Acid-base, Ksp"},
                 {Date: '1/8/2022', Type: "Status Exam", Suggested: "Amino acids, Thermodynamics" },
                 {Date: '1/2/2022', Type: "Flashcard Addition", Suggested: "Acid-base, Ksp"},
-                
-            ]
+            ],
+           
         }
 
     },

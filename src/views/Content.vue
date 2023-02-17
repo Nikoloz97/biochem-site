@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Chapter from '@/components/Content/Chapter.vue'
+import Chapter from '@/components/Content/Main/Content.vue'
 import SideNav from '@/components/Content/SideNav.vue'
 
 

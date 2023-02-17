@@ -176,6 +176,7 @@
   
     methods: {
       displayAnswer(question) {
+        console.log(random(0, 5));
         this.$store.commit("DISPLAY_ANSWERS", question);
       },
       displayBackCont(question) {

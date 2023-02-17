@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ text }}
+        <b-calendar/>
     </div>
 
 </template>
