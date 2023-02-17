@@ -354,12 +354,20 @@ export default new Vuex.Store({
     ],
     
     // Content
+
+    // Content - navs
+
+    // Content-main
     ContentList: [
       {
           title: 'Chapter 1',
           isDisplayed: true,
           desc1: 'This is 1 content',
           desc2: 'This is 1 more content',
+          Number: "Chapter 1",
+          Title: "Amino Acids",
+          Description: "Learning the structure, behavior, and functionality of the essential Amino Acids",
+          ChapterItems: ["Structure", "Behavior", "Functionality"]
           
       },
       {
@@ -367,7 +375,21 @@ export default new Vuex.Store({
           isDisplayed: false,
           desc1: 'This is 2 content',
           desc2: 'This is 2 more content',
+          Number: "Chapter 2",
+          Title: "Tacos",
+          Description: "Tacos are the best",
+          ChapterItems: ["Wheat", "Corn", "Multigrain"]
       },
+      {
+          title: 'Chapter 3',
+          isDisplayed: false,
+          desc1: 'This is 3 content',
+          desc2: 'This is 3 more content',
+          Number: "Chapter 3",
+          Title: "Burritos",
+          Description: "Burritos come at a close second",
+          ChapterItems: ["Beef", "Chicken", "Salsa"]
+      }
   ],
   
   // Planner
