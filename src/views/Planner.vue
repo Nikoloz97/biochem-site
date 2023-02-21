@@ -14,7 +14,7 @@
                 <b-col>
                     <b-row class="h-50" align-v="center">
                         <b-col>
-                            <b-card><planner-calendar/></b-card>
+                            <planner-calendar/>
                         </b-col>
                     </b-row>
                     <b-row class="h-50" align-v="center">

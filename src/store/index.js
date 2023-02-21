@@ -399,6 +399,7 @@ export default new Vuex.Store({
     {
       id: 1,
       Header: "Amino acids",
+      Priority: 1,
       Date: "02/21/2023",
       Description: "This is some information involving amino acids",
       Links: ["Link 1", "Link 2", "Link 3"]
@@ -407,6 +408,7 @@ export default new Vuex.Store({
     {
       id: 2,
       Header: "Acids",
+      Priority: 2,
       Date: "02/21/2023",
       Description: "This is some information involving amino acids",
       Links: ["Link 1", "Link 2", "Link 3"]
@@ -414,10 +416,37 @@ export default new Vuex.Store({
     {
       id: 3,
       Header: "Bases",
+      Priorty: 3,
       Date: "02/21/2023",
       Description: "This is some information involving amino acids",
       Links: ["Link 1", "Link 2", "Link 3"]
     },
+    {
+      id: 1,
+      Header: "Amino acids",
+      Priority: 1,
+      Date: "02/21/2023",
+      Description: "This is some information involving amino acids",
+      Links: ["Link 1", "Link 2", "Link 3"]
+    },
+
+    {
+      id: 2,
+      Header: "Acids",
+      Priority: 2,
+      Date: "02/21/2023",
+      Description: "This is some information involving amino acids",
+      Links: ["Link 1", "Link 2", "Link 3"]
+    },
+    {
+      id: 3,
+      Header: "Bases",
+      Priorty: 3,
+      Date: "02/21/2023",
+      Description: "This is some information involving amino acids",
+      Links: ["Link 1", "Link 2", "Link 3"]
+    },
+
 
   ],
 

@@ -21,10 +21,7 @@
     </b-list-group>
 
 </b-card>
-        
-
-
-    </div>
+        </div>
 
 </template>
 

@@ -1,6 +1,11 @@
 <template>
     <div>
-        <b-calendar/>
+        <b-card header="Calendar">
+            <b-calendar  v-model="value" @context="onContext" locale="en-US"/>
+        </b-card>
+
+        <!-- This is how values are attained -->
+        <p> {{ context.selectedYMD}}</p>
     </div>
 
 </template>
@@ -13,8 +18,8 @@ export default {
     components: {},
     data() {
         return {
-            text: "This is the calendar"
-
+            value: '',
+            context: ''
         }
 
     },
@@ -22,7 +27,9 @@ export default {
 
     },
     methods: {
-
+        onContext(ctx) {
+        this.context = ctx
+      }
     }
 }
 
