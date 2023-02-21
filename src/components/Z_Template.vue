@@ -6,6 +6,8 @@
 <script>
 // import blank from ''
 
+// No longer need this! Just type in: vbase into empty files 
+
 export default {
     name: 'template',
     components: {},

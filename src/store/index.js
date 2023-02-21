@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    
 
     // SatusExam
     correctMsg: "Nice Work!",
@@ -393,10 +394,32 @@ export default new Vuex.Store({
   ],
   
   // Planner
-  LogHistory: []
+  LogHistory: [],
+  Todos: [
+    {
+      id: 1,
+      Header: "Amino acids",
+      Date: "02/21/2023",
+      Description: "This is some information involving amino acids",
+      Links: ["Link 1", "Link 2", "Link 3"]
+    },
 
+    {
+      id: 2,
+      Header: "Acids",
+      Date: "02/21/2023",
+      Description: "This is some information involving amino acids",
+      Links: ["Link 1", "Link 2", "Link 3"]
+    },
+    {
+      id: 3,
+      Header: "Bases",
+      Date: "02/21/2023",
+      Description: "This is some information involving amino acids",
+      Links: ["Link 1", "Link 2", "Link 3"]
+    },
 
-
+  ],
 
     // state ends here
   },

@@ -1,11 +1,11 @@
 <template>
-    <b-container >
+    <b-container class="vh-100">
             <b-row class="h-100">
                 <b-col>
                 
                     <b-row class="h-100" align-v="center">
                         <b-col>
-                            <b-card><planner-to-dos/></b-card>
+                            <planner-to-dos/>
                         </b-col>
                     </b-row>
                 
