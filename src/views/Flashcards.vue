@@ -1,17 +1,25 @@
 <template>
 
 <div>
-    <flashcards></flashcards>
+    <b-row>
+        <b-col cols = "4">
+            <decks/>
+        </b-col>
+        <b-col cols="8" >
+            <flashcard/>
+        </b-col>
+    </b-row>
 </div>
 
 </template>
 
 <script>
-import Flashcards from '../components/FlashCards/Main.vue'
+import decks from '../components/FlashCards/Decks.vue'
+import flashcard from '../components/FlashCards/Main.vue'
 
 export default {
     name: 'FlashCards',
-    components: {Flashcards},
+    components: {flashcard, decks},
     data() {
         return {
             

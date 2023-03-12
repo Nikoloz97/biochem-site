@@ -6,7 +6,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     
-
     // SatusExam
     correctMsg: "Nice Work!",
     incorrectMsg: "Better luck next time...",
@@ -356,9 +355,9 @@ export default new Vuex.Store({
     
     // Content
 
-    // Content - navs
+    // Content (navs)
 
-    // Content-main
+    // Content (main)
     ContentList: [
       {
           title: 'Chapter 1',
@@ -394,8 +393,11 @@ export default new Vuex.Store({
   ],
 
   // Flashcards
+
+  // ALL the flashcards
   flashcards: [
     {
+    Id: 1,
     Chapter:1,
     Subchapter: 1,
     ImageURL:"https://microbenotes.com/wp-content/uploads/2021/07/Amino-Acids.jpeg",
@@ -404,6 +406,7 @@ export default new Vuex.Store({
     ConfidenceLevel: 0
     },
     {
+      Id: 2,
       Chapter: 1,
       Subchapter: 2,
       ImageURL:"https://o.quizlet.com/sCIsgxuGPtopiHeMa8d3mg.png",
@@ -412,10 +415,43 @@ export default new Vuex.Store({
       ConfidenceLevel: 0
     },
     {
-      Chapter: 1,
-      Subchapter: 3,
+      Id: 3,
+      Chapter: 2,
+      Subchapter: 1,
       ImageURL:"https://www.mun.ca/biology/scarr/iGen3_06-03_Figure-Lsmc.jpg",
-      Prompt:"Peptide bonds are formed when the amino group backside-attacks the carboxyl group, forming a type of amide bond",
+      Prompt:"I like tacos",
+      // 0 = low, 1 = mod, 2 = high
+      ConfidenceLevel: 0
+    },
+    {
+      Id: 4,
+      Chapter: 3,
+      Subchapter: 1,
+      ImageURL:"https://www.mun.ca/biology/scarr/iGen3_06-03_Figure-Lsmc.jpg",
+      Prompt:"Tacos are awesome",
+      // 0 = low, 1 = mod, 2 = high
+      ConfidenceLevel: 0
+    },
+
+  ],
+
+  // Decks of flashcards (chapter/subchapter-specific)
+  decks: [
+    {
+      Id: 1,
+    Chapter:1,
+    Subchapter: 1,
+    ImageURL:"https://microbenotes.com/wp-content/uploads/2021/07/Amino-Acids.jpeg",
+    Prompt:"The parts of the amino acids are the amino group, hydrogen, carboxyl, and r-group",
+    // 0 = low, 1 = mod, 2 = high
+    ConfidenceLevel: 0
+    },
+    {
+      Id: 2,
+      Chapter: 1,
+      Subchapter: 2,
+      ImageURL:"https://o.quizlet.com/sCIsgxuGPtopiHeMa8d3mg.png",
+      Prompt:"Typically, the pka of carboxyl group is around 2-4, while that of amino group is around 9-10",
       // 0 = low, 1 = mod, 2 = high
       ConfidenceLevel: 0
     },
@@ -553,7 +589,7 @@ export default new Vuex.Store({
     const sortedList = Suggestions.sort((a, b) => (a.value > b.value) ? 1 : -1)
     
     return sortedList
-  }
+  },
 
 },
   mutations: {
