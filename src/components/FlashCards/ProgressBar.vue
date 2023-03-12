@@ -14,6 +14,7 @@
 export default {
     name: 'FCProgress',
     components: {},
+    props: ['BarState'],
     data() {
         return {
             

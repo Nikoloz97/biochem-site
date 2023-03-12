@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             progressBar: {
-                max: this.$store.flashcards.length,
+                max: this.$store.state.flashcards.length,
                 value: 0,
             }
             
