@@ -29,7 +29,7 @@ export default {
   components: {NavBar},
   data() {
     return {
-      Message: "Great job!!",
+      Message: "Great job test!!",
     };
   },
   methods: {
