@@ -2,6 +2,10 @@
     <div>
         <!-- Progress bar -->
         <progress-bar :BarState="progressBar"/>
+        <b-card>
+            
+
+        </b-card>
 
     </div>
 
