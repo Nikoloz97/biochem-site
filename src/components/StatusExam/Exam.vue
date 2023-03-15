@@ -66,12 +66,13 @@
               >
             </b-container>
           </b-card-text>
+
+          <!-- Answer options -->
           <b-container
             class="border d-flex justify-content-around flex-wrap"
             style="height: 60%"
           >
             <b-col>
-              <!-- Vue = implicitly knows that index = index of item in array -->
               <div
                 v-for="(choice, index) in question.choices"
                 :key="choice.name"
@@ -121,6 +122,7 @@
               </div>
             </b-col>
           </b-container>
+          
         </b-card>
       </b-container>
 

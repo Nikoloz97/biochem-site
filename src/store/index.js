@@ -394,66 +394,78 @@ export default new Vuex.Store({
 
   // Flashcards
 
+  currentFlashcard: 0,
+
+  // Decks that the user wants to save
+  savedDecks: [
+    {
+      ChapterNum: 1, 
+      // Value zero = user wants all the subchapters from that chapter  
+      SubchapterNum: 0
+    },
+    {
+      ChapterNum: 2,
+      SubchapterNum: 1
+    }
+  ],
+
   // ALL the flashcards
   flashcards: [
     {
     Id: 1,
-    Chapter:1,
-    Subchapter: 1,
+    ChapterNum:1,
+    ChapterName: "Amino acids", 
+    SubchapterNum: 1,
+    SubchapterName: "Basics of Amino Acids",
+    DateAdded: "3/10/2023",
     ImageURL:"https://microbenotes.com/wp-content/uploads/2021/07/Amino-Acids.jpeg",
     Prompt:"The parts of the amino acids are the amino group, hydrogen, carboxyl, and r-group",
     // 0 = low, 1 = mod, 2 = high
-    ConfidenceLevel: 0
+    ConfidenceLevel: 1,
+    isBackContHidden: true,
+    isBackDisabled: true
     },
     {
       Id: 2,
-      Chapter: 1,
-      Subchapter: 2,
-      ImageURL:"https://o.quizlet.com/sCIsgxuGPtopiHeMa8d3mg.png",
+      ChapterNum: 1,
+      ChapterName: "Amino acids",
+      SubchapterNum: 2,
+      SubchapterName: "pKas of Amino Acids",
+      DateAdded: "3/11/2023",
+      ImageURL:"https://microbenotes.com/wp-content/uploads/2021/07/Amino-Acids.jpeg",
       Prompt:"Typically, the pka of carboxyl group is around 2-4, while that of amino group is around 9-10",
       // 0 = low, 1 = mod, 2 = high
-      ConfidenceLevel: 0
+      ConfidenceLevel: 1,
+      isBackContHidden: true,
+      isBackDisabled: true
     },
     {
       Id: 3,
-      Chapter: 2,
-      Subchapter: 1,
+      ChapterNum: 2,
+      ChapterName: "Titrations",
+      SubchapterNum: 1,
+      SubchapterName: "Titration buffers",
+      DateAdded: "3/12/2023",
       ImageURL:"https://www.mun.ca/biology/scarr/iGen3_06-03_Figure-Lsmc.jpg",
-      Prompt:"I like tacos",
+      Prompt:"The parts of the amino acids are the amino group, hydrogen, carboxyl, and r-group",
       // 0 = low, 1 = mod, 2 = high
-      ConfidenceLevel: 0
+      ConfidenceLevel: 1,
+      isBackContHidden: true,
+      isBackDisabled: true
     },
     {
       Id: 4,
-      Chapter: 3,
-      Subchapter: 1,
-      ImageURL:"https://www.mun.ca/biology/scarr/iGen3_06-03_Figure-Lsmc.jpg",
-      Prompt:"Tacos are awesome",
-      // 0 = low, 1 = mod, 2 = high
-      ConfidenceLevel: 0
-    },
-
-  ],
-
-  // Decks of flashcards (chapter/subchapter-specific)
-  decks: [
-    {
-      Id: 1,
-    Chapter:1,
-    Subchapter: 1,
-    ImageURL:"https://microbenotes.com/wp-content/uploads/2021/07/Amino-Acids.jpeg",
-    Prompt:"The parts of the amino acids are the amino group, hydrogen, carboxyl, and r-group",
-    // 0 = low, 1 = mod, 2 = high
-    ConfidenceLevel: 0
-    },
-    {
-      Id: 2,
-      Chapter: 1,
-      Subchapter: 2,
+      ChapterNum: 3,
+      ChapterName: "Cell metabolism",
+      SubchapterNum: 1,
+      SubchapterName: "Glycolysis",
+      DateAdded: "3/13/2023",
       ImageURL:"https://o.quizlet.com/sCIsgxuGPtopiHeMa8d3mg.png",
       Prompt:"Typically, the pka of carboxyl group is around 2-4, while that of amino group is around 9-10",
       // 0 = low, 1 = mod, 2 = high
-      ConfidenceLevel: 0
+      ConfidenceLevel: 1,
+      isBackContHidden: true,
+      isBackDisabled: true
     },
 
   ],
@@ -521,6 +533,14 @@ export default new Vuex.Store({
 
   // Store's version of computed 
   getters: {
+    getChapterDeck(state, chapterNum) {
+      const chapterDeck = state.flashcards.filter(FC => FC.ChapterNum == chapterNum);
+      return chapterDeck;
+    },
+    getSubchapterDeck(state, chapterNum, subchapterNum) {
+      const subchapterDeck = state.flashcards.filter(FC => FC.ChapterNum == chapterNum && FC.SubchapterNum == subchapterNum);
+      return subchapterDeck;
+    },
     getPercentCorrect(state) {
 
       const percentCorrect = (state.correctAttempts / state.totalAttempts) * 100
