@@ -422,7 +422,7 @@ export default new Vuex.Store({
     Prompt:"The parts of the amino acids are the amino group, hydrogen, carboxyl, and r-group",
     // 0 = low, 1 = mod, 2 = high
     ConfidenceLevel: 1,
-    isBackContHidden: true,
+    isContHidden: true,
     isBackDisabled: true
     },
     {
@@ -436,7 +436,7 @@ export default new Vuex.Store({
       Prompt:"Typically, the pka of carboxyl group is around 2-4, while that of amino group is around 9-10",
       // 0 = low, 1 = mod, 2 = high
       ConfidenceLevel: 1,
-      isBackContHidden: true,
+      isContHidden: true,
       isBackDisabled: true
     },
     {
@@ -450,7 +450,7 @@ export default new Vuex.Store({
       Prompt:"The parts of the amino acids are the amino group, hydrogen, carboxyl, and r-group",
       // 0 = low, 1 = mod, 2 = high
       ConfidenceLevel: 1,
-      isBackContHidden: true,
+      isContHidden: true,
       isBackDisabled: true
     },
     {
@@ -464,11 +464,13 @@ export default new Vuex.Store({
       Prompt:"Typically, the pka of carboxyl group is around 2-4, while that of amino group is around 9-10",
       // 0 = low, 1 = mod, 2 = high
       ConfidenceLevel: 1,
-      isBackContHidden: true,
+      isContHidden: true,
       isBackDisabled: true
     },
 
   ],
+
+  FlashcardsUsed: [0],
 
   
   // Planner
@@ -613,6 +615,15 @@ export default new Vuex.Store({
 
 },
   mutations: {
+    NEXT_RANDOM_CARD(state) {
+      let randomValue = 0;
+      do {
+        randomValue = Math.floor(Math.random() * (flashcards.Length - 1)) + 1
+
+      } while (state.FlashcardsUsed.includes(randomValue));
+      
+      
+    },
     DISPLAY_ANSWERS(state, question) {
         question.displayAnswers = true
     },
