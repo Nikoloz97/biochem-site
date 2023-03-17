@@ -1,19 +1,20 @@
 <template>
+    
     <div>
-        <login/>
+        <profile/>
     </div>
-
 </template>
 
 <script>
-import Login from  '../components/User/Login.vue'
+import Profile from  '../components/Profile/Main.vue'
 
 export default {
-    name: 'UserLoginView',
-    components: {Login},
+
+    name: 'UserProfileView',
+    components: {Profile},
     data() {
         return {
-
+            
         }
 
     },

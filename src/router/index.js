@@ -5,8 +5,8 @@ import Status from '@/views/StatusExam'
 import FlashCards from '@/views/Flashcards'
 import Planner from '@/views/Planner'
 import Content from '@/views/Content'
-import Login from '@/views/UserLogin'
-import Profile from '@/views/UserProfile'
+import Login from '@/views/Login'
+import Profile from '@/views/Profile'
 import Tutorial from '@/views/Tutorial'
 
 Vue.use(VueRouter)
