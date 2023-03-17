@@ -470,7 +470,7 @@ export default new Vuex.Store({
 
   ],
 
-  FlashcardsUsed: [0],
+  FlashcardIndexesUsed: [0],
 
   
   // Planner
@@ -617,12 +617,23 @@ export default new Vuex.Store({
   mutations: {
     NEXT_RANDOM_CARD(state) {
       let randomValue = 0;
-      do {
-        randomValue = Math.floor(Math.random() * (flashcards.Length - 1)) + 1
+      const flashcardLength = state.flashcards.length;
 
-      } while (state.FlashcardsUsed.includes(randomValue));
-      
-      
+      if  (state.FlashcardIndexesUsed.length != flashcardLength) {
+
+        while (state.FlashcardIndexesUsed.includes(randomValue))
+      {
+        randomValue = Math.floor(Math.random() * (flashcardLength- 1)) + 1
+      }
+
+      state.FlashcardIndexesUsed.push(randomValue);
+
+      console.log(randomValue)
+
+      state.currentFlashcard = randomValue;
+
+      console.log(state.currentFlashcard)
+      }
     },
     DISPLAY_ANSWERS(state, question) {
         question.displayAnswers = true

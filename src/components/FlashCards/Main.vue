@@ -4,9 +4,9 @@
         <progress-bar :BarState="progressBar"/>
 
         <!-- Card -->
-        <div v-for="(flashcard, index) in flashcards"
+        <b-container v-for="(flashcard, index) in $store.state.flashcards"
             :key="index" >
-            <b-card v-if="index == currentFlashcard"
+            <b-card v-if="index == $store.state.currentFlashcard"
                     :img-src="flashcard.ImageURL"
                     img-top
                     style="height: 45rem"
@@ -19,15 +19,15 @@
             <p class="statement">{{ flashcard.Prompt }}</p>
 
             <b-container class="d-flex justify-content-between">
-
+ 
+            <!-- :class="{ 'd-none': flashcard.isContHidden }" -->
               <b-button
-                v-if="index != $store.state.flashcards.length - 1"
-                :class="{ 'd-none': flashcard.isContHidden }"
+                v-if="$store.state.FlashcardIndexesUsed.length != 4"
                 :disabled="flashcard.isForwardDisabled"
                 @click="nextRandomCard(); progressBar.value++"
-                >Continue</b-button
-              >
-  
+                > Continue
+                </b-button>
+
             </b-container>
         </b-card-text>
 
@@ -35,7 +35,7 @@
        
 
         </b-card>
-        </div>
+        </b-container>
 
     </div>
 
@@ -53,8 +53,7 @@ export default {
                 max: this.$store.state.flashcards.length,
                 value: 0,
             },
-            flashcards: this.$store.state.flashcards,
-            currentFlashcard: this.$store.state.currentFlashcard
+
         }
 
     },
