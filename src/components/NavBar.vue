@@ -8,7 +8,7 @@
             <b-nav-item to="/flashcards">Study</b-nav-item>
             <b-nav-item to="/planner">Planner</b-nav-item>
             <b-nav-item to="/statusExam">Status Exam</b-nav-item>
-            <b-nav-item to="/how-to">Tutorial</b-nav-item>
+            <b-nav-item to="/tutorial">Tutorial</b-nav-item>
         </b-navbar-nav>
         
         <!-- ml-auto = defaults to pushing content all the way to the right -->
@@ -17,8 +17,8 @@
         <b-navbar-nav class="ml-auto">
             <b-img rounded="circle" :src="profileURL" v-bind="imgDimensions" class="mr-2"></b-img>
             <b-nav-item-dropdown :src="profileURL" text="User">
-                <b-dropdown-item>Edit Profile</b-dropdown-item>
-                <b-dropdown-item>Sign Out</b-dropdown-item>
+                <b-dropdown-item to="/profile">Edit Profile</b-dropdown-item>
+                <b-dropdown-item to="/login">Sign Out</b-dropdown-item>
             </b-nav-item-dropdown>
             <b-nav-item>Settings</b-nav-item>
             

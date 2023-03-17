@@ -36,7 +36,7 @@ import PlannerToDos from '@/components/Planner/ToDos.vue'
 
 
 export default {
-    name: 'Planner',
+    name: 'PlannerView',
     components: {PlannerCalendar, PlannerListing, PlannerToDos},
     data() {
         return {

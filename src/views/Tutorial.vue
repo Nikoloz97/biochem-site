@@ -1,17 +1,16 @@
 <template>
     <div>
-        <b-row align-h="center"><h1>How To</h1></b-row>
-
+        <tutorial/>
     </div>
 
 </template>
 
 <script>
-// import blank from ''
+import Tutorial from  '../components/Tutorial/Main.vue'
 
 export default {
-    name: 'HowToMain',
-    components: {},
+    name: 'TutorialView',
+    components: {Tutorial},
     data() {
         return {
 

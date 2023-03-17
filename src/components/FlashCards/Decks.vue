@@ -6,8 +6,8 @@
       <b-list-group-item href="#" class="flex-column align-items-start">
 
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{ deck.Chapter }}</h5>
-          <small class="text-muted">{{ deck.Subchapter }}</small>
+          <h5 class="mb-1">{{ deck.DateAdded }}</h5>
+          <small class="text-muted">{{ deck.ChapterName }}</small>
         </div>
 
       </b-list-group-item>

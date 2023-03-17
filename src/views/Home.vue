@@ -15,7 +15,7 @@ import About from '../components/Home/About.vue'
 
 
 export default {
-    name: 'Home',
+    name: 'HomeView',
     components: {Featured, Explore, About},
     data() {
         return {

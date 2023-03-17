@@ -5,7 +5,9 @@ import Status from '@/views/StatusExam'
 import FlashCards from '@/views/Flashcards'
 import Planner from '@/views/Planner'
 import Content from '@/views/Content'
-import HowTo from '@/views/HowTo'
+import Login from '@/views/UserLogin'
+import Profile from '@/views/UserProfile'
+import Tutorial from '@/views/Tutorial'
 
 Vue.use(VueRouter)
 
@@ -40,11 +42,20 @@ const router = new VueRouter({
         component: Content
       },
       {
-        path:'/how-to',
-        name: 'How-to',
-        component: HowTo
-      }
-
+        path:'/tutorial',
+        name: 'Tutorial',
+        component: Tutorial
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: Login
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+      },
   ]
 
 })

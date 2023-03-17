@@ -13,7 +13,7 @@ import Results from '@/components/StatusExam/Results/Results.vue';
 import Exam from '@/components/StatusExam/Exam.vue';
 
 export default {
-  name: 'template',
+  name: 'StatusExamView',
   components: {Results, Exam},
   data() {
       return {

@@ -1,20 +1,19 @@
 <template>
-    
     <div>
-
-
+        <login/>
     </div>
+
 </template>
 
 <script>
-// import blank from ''
+import Login from  '../components/User/Login.vue'
 
 export default {
-    name: 'Profile',
-    components: {},
+    name: 'UserLoginView',
+    components: {Login},
     data() {
         return {
-            
+
         }
 
     },

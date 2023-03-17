@@ -1,16 +1,16 @@
 <template>
     <div>
-        <how-to-main/>
+        <p>This is the login page</p>
+        
     </div>
 
 </template>
 
 <script>
-import HowToMain from  '../components/HowTo/Main.vue'
 
 export default {
-    name: 'template',
-    components: {HowToMain},
+    name: 'LoginMain',
+    components: {},
     data() {
         return {
 
